@@ -4,24 +4,28 @@
  * Runs immediately (no DOMContentLoaded). Loaded before main.js.
  */
 
-// Detect if we are on the about page
-var isAboutPageFooter = window.location.pathname.indexOf('about') !== -1;
+// Detect if we are on a secondary page
+var isAboutPageFooter = window.location.pathname.toLowerCase().indexOf('about') !== -1;
+var isCoursePageFooter = window.location.pathname.toLowerCase().indexOf('course') !== -1;
+var isContactPageFooter = window.location.pathname.toLowerCase().indexOf('contact') !== -1;
+var isAdmissionsPageFooter = window.location.pathname.toLowerCase().indexOf('admissions') !== -1;
+var isSubPageFooter = isAboutPageFooter || isCoursePageFooter || isContactPageFooter || isAdmissionsPageFooter;
 
-// Build link prefix: on about.html, section anchors point to index.html#...
-var flp = isAboutPageFooter ? 'index.html' : '';
+// Build link prefix: on subpages, section anchors point to index.html#...
+var flp = isSubPageFooter ? 'index.html' : '';
 
 // Footer Quick Links differ between pages
-var footerHomeLink = isAboutPageFooter ? 'index.html#home' : '#home';
-var footerAboutLink = isAboutPageFooter ? 'about.html' : '#about';
-var footerAdmissionsLink = isAboutPageFooter ? 'index.html#admissions' : '#admissions';
-var footerResourcesLink = isAboutPageFooter ? 'index.html#resources' : '#resources';
-var footerContactLink = isAboutPageFooter ? 'index.html#contact-enquiry' : '#contact';
+var footerHomeLink = isSubPageFooter ? 'index.html#home' : '#home';
+var footerAboutLink = 'about.html';
+var footerAdmissionsLink = 'Admissions.html';
+var footerResourcesLink = isSubPageFooter ? 'index.html#resources' : '#resources';
+var footerContactLink = 'contact.html';
 
 // Footer Courses links
-var footerNttLink = isAboutPageFooter ? 'index.html#ntt-course' : '#ntt-course';
-var footerWorkshopLink = isAboutPageFooter ? 'index.html#workshop' : '#workshop';
-var footerCounsellingLink = isAboutPageFooter ? 'index.html#counselling' : '#counselling';
-var footerCareerLink = isAboutPageFooter ? 'index.html#career' : '#career';
+var footerNttLink = 'course.html#ntt-course';
+var footerWorkshopLink = 'course.html#workshop';
+var footerCounsellingLink = 'course.html#counselling';
+var footerCareerLink = 'course.html#career';
 
 var footerHTML = `<footer id="footer" class="footer-section">
     <div class="container">

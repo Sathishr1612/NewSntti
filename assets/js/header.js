@@ -1,7 +1,9 @@
-// Detect if we are on a secondary page (about.html, course.html, etc.)
-var isAboutPage = window.location.pathname.indexOf('about') !== -1;
-var isCoursePage = window.location.pathname.indexOf('course') !== -1;
-var isSubPage = isAboutPage || isCoursePage;
+// Detect if we are on a secondary page (about.html, course.html, contact.html, Admissions.html, etc.)
+var isAboutPage = window.location.pathname.toLowerCase().indexOf('about') !== -1;
+var isCoursePage = window.location.pathname.toLowerCase().indexOf('course') !== -1;
+var isContactPage = window.location.pathname.toLowerCase().indexOf('contact') !== -1;
+var isAdmissionsPage = window.location.pathname.toLowerCase().indexOf('admissions') !== -1;
+var isSubPage = isAboutPage || isCoursePage || isContactPage || isAdmissionsPage;
 
 // Build link prefix: on subpages, all section anchors point to index.html#...
 var lp = isSubPage ? 'index.html' : '';
@@ -10,8 +12,12 @@ var lp = isSubPage ? 'index.html' : '';
 var homeActiveClass = isSubPage ? '' : ' active';
 var aboutActiveClass = isAboutPage ? ' active' : '';
 var courseActiveClass = isCoursePage ? ' active' : '';
+var admissionsActiveClass = isAdmissionsPage ? ' active' : '';
+var contactActiveClass = isContactPage ? ' active' : '';
 var mobileHomeActiveClass = isSubPage ? '' : ' active';
 var mobileAboutActiveClass = isAboutPage ? ' active' : '';
+var mobileAdmissionsActiveClass = isAdmissionsPage ? ' active' : '';
+var mobileContactActiveClass = isContactPage ? ' active' : '';
 
 // Navbar extra class: subpages have 'scrolled' baked in
 var navbarScrolledClass = isSubPage ? ' scrolled' : '';
@@ -115,16 +121,16 @@ var headerHTML = `<!-- Top Contact Bar -->
           </li>
           <!-- Courses Link -->
           <li class="nav-item">
-            <a class="nav-link${courseActiveClass}" href="${isSubPage ? 'course.html' : '#courses'}" id="navCourses">Courses</a>
+            <a class="nav-link${courseActiveClass}" href="course.html" id="navCourses">Courses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="${lp}#admissions" id="navAdmissions">Admissions</a>
+            <a class="nav-link${admissionsActiveClass}" href="Admissions.html" id="navAdmissions">Admissions</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="${lp}#resources" id="navResources">Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="${lp}#contact-enquiry" id="navContact">Contact</a>
+            <a class="nav-link${contactActiveClass}" href="contact.html" id="navContact">Contact</a>
           </li>
         </ul>
       </div>
@@ -161,17 +167,17 @@ var headerHTML = `<!-- Top Contact Bar -->
       </a>
 
       <!-- Courses Link -->
-      <a href="${lp}#courses" class="mobile-nav-item" onclick="closeMobileMenu()">
+      <a href="course.html" class="mobile-nav-item${courseActiveClass}" onclick="closeMobileMenu()">
         <i class="bi bi-book-fill me-3" style="color:#E9B13A; font-size:18px;"></i> Courses
       </a>
 
-      <a href="${lp}#admissions" class="mobile-nav-item" onclick="closeMobileMenu()">
+      <a href="Admissions.html" class="mobile-nav-item${mobileAdmissionsActiveClass}" onclick="closeMobileMenu()">
         <i class="bi bi-mortarboard-fill me-3" style="color:#E9B13A; font-size:18px;"></i> Admissions
       </a>
       <a href="${lp}#resources" class="mobile-nav-item" onclick="closeMobileMenu()">
         <i class="bi bi-folder-fill me-3" style="color:#E9B13A; font-size:18px;"></i> Resources
       </a>
-      <a href="${lp}#contact-enquiry" class="mobile-nav-item" onclick="closeMobileMenu()">
+      <a href="contact.html" class="mobile-nav-item${mobileContactActiveClass}" onclick="closeMobileMenu()">
         <i class="bi bi-envelope-fill me-3" style="color:#E9B13A; font-size:18px;"></i> Contact
       </a>
     </div>

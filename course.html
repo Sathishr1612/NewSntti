@@ -243,6 +243,19 @@
                                     style="font-size: 11px; letter-spacing: 1.5px;">BATCH SIZE</div>
                                 <div class="fw-bold text-white fs-5 text-uppercase">50–60 STUDENTS</div>
                             </div>
+                            <hr class="my-1 opacity-25 border-warning">
+                            <div>
+                                <div class="editorial-label text-warning mb-1"
+                                    style="font-size: 11px; letter-spacing: 1.5px;">MODE</div>
+                                <div class="fw-bold text-white fs-5 text-uppercase">[OFFLINE / ONLINE / HYBRID]</div>
+                            </div>
+                            <hr class="my-1 opacity-25 border-warning">
+                            <div>
+                                <div class="editorial-label text-warning mb-1"
+                                    style="font-size: 11px; letter-spacing: 1.5px;">CERTIFICATION</div>
+                                <div class="fw-bold text-white fs-6">[CERTIFICATION AND ISSUING BODY] - To be shared
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -339,6 +352,14 @@
                                             session delivered for your full staff, on your campus or ours.</div>
                                     </div>
                                 </div>
+                                <!-- <div class="col-12 mt-2">
+                                    <div class="p-3 rounded-3"
+                                        style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(221, 174, 47, 0.2);">
+                                        <div class="fw-bold text-warning mb-1"><i
+                                                class="bi bi-clock-history me-2"></i>Duration</div>
+                                        <div class="small" style="color: rgba(255, 255, 255, 0.85);">[1 Day]</div>
+                                    </div>
+                                </div> -->
                             </div>
 
                             <p class="small fst-italic mb-4"
@@ -508,47 +529,87 @@
                 </div>
             </div>
 
-            <!-- TIER 3: HOW IT WORKS (LUXURY 2-CARD PROCESS GRID) -->
-            <div class="pt-2">
-                <div class="d-flex align-items-center gap-2 mb-4">
-                    <span class="editorial-label">PROCESS</span>
-                    <span class="text-muted">•</span>
-                    <h3 class="editorial-heading-sub mb-0" style="font-size: 16px;">HOW IT WORKS</h3>
+            <!-- TIER 3: HOW IT WORKS (HORIZONTAL STEPS DESIGN) -->
+            <div class="pt-5 pb-3">
+                <div class="text-center mb-5 animate-on-scroll fade-up">
+                    <span class="editorial-label d-inline-block mb-2 text-warning fw-bold" style="letter-spacing: 2px;">PROCESS</span>
+                    <h3 class="editorial-heading-sub mb-0" style="font-size: 26px; color: var(--sntti-dark-brown);">How It Works</h3>
                 </div>
 
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="editorial-info-strip h-100 p-4 border-0 shadow-sm" style="border-radius: 20px;">
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                                <span class="editorial-number" style="font-size: 36px;">01</span>
-                                <div class="editorial-check-icon m-0"
-                                    style="width: 44px; height: 44px; font-size: 20px; background: rgba(221, 174, 47, 0.15); color: #DDAE2F;">
-                                    <i class="bi bi-shield-lock-fill"></i>
-                                </div>
-                            </div>
-                            <h4 class="fw-bold mb-2" style="font-size: 18px; color: var(--sntti-dark-brown);">
-                                Confidentiality</h4>
-                            <p class="editorial-body small mb-0" style="font-size: 15px; color: #555555;">Everything
-                                discussed stays private.</p>
+                <style>
+                    .process-step { cursor: default; }
+                    .process-step:hover .process-icon-wrapper {
+                        transform: translateY(-8px) scale(1.05);
+                        box-shadow: 0 15px 25px rgba(221, 174, 47, 0.25) !important;
+                        background: #DDAE2F !important;
+                        color: #ffffff !important;
+                        border-color: #DDAE2F !important;
+                    }
+                    .process-icon-wrapper {
+                        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    }
+                    .process-arrow {
+                        animation: pulseArrow 2s infinite ease-in-out;
+                    }
+                    @keyframes pulseArrow {
+                        0%, 100% { transform: translateX(0); opacity: 0.6; }
+                        50% { transform: translateX(8px); opacity: 1; }
+                    }
+                </style>
+
+                <div class="row g-4 justify-content-center position-relative">
+                    <!-- Step 1 -->
+                    <div class="col-6 col-lg-3 position-relative text-center process-step animate-on-scroll fade-up">
+                        <div class="process-icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle mb-4 shadow" style="width: 76px; height: 76px; background: #ffffff; color: var(--sntti-dark-brown); border: 2px solid #DDAE2F;">
+                            <i class="bi bi-shield-lock-fill fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2" style="font-size: 19px; color: var(--sntti-dark-brown);">Confidentiality</h4>
+                        <p class="text-dark mb-0 px-xl-2 fw-medium" style="font-size: 15px; line-height: 1.5;">Everything discussed stays private.</p>
+                        
+                        <!-- Arrow -->
+                        <div class="position-absolute d-none d-lg-block process-arrow" style="right: -15px; top: 26px; color: #DDAE2F;">
+                            <i class="bi bi-chevron-right fs-2"></i>
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="editorial-info-strip h-100 p-4 border-0 shadow-sm" style="border-radius: 20px;">
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                                <span class="editorial-number" style="font-size: 36px;">02</span>
-                                <div class="editorial-check-icon m-0"
-                                    style="width: 44px; height: 44px; font-size: 20px; background: rgba(221, 174, 47, 0.15); color: #DDAE2F;">
-                                    <i class="bi bi-calendar2-check-fill"></i>
-                                </div>
-                            </div>
-                            <h4 class="fw-bold mb-2" style="font-size: 18px; color: var(--sntti-dark-brown);">Booking
-                            </h4>
-                            <p class="editorial-body small mb-0" style="font-size: 15px; color: #555555;">By appointment
-                                - call or message us on WhatsApp.</p>
+                    <!-- Step 2 -->
+                    <div class="col-6 col-lg-3 position-relative text-center process-step animate-on-scroll fade-up" style="animation-delay: 0.1s;">
+                        <div class="process-icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle mb-4 shadow" style="width: 76px; height: 76px; background: #ffffff; color: var(--sntti-dark-brown); border: 2px solid #DDAE2F;">
+                            <i class="bi bi-stopwatch-fill fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2" style="font-size: 19px; color: var(--sntti-dark-brown);">Session Length</h4>
+                        <p class="text-dark mb-0 px-xl-2 fw-bold" style="font-size: 15px; line-height: 1.5;">[45 to 60 minutes]</p>
+                        
+                        <!-- Arrow -->
+                        <div class="position-absolute d-none d-lg-block process-arrow" style="right: -15px; top: 26px; color: #DDAE2F;">
+                            <i class="bi bi-chevron-right fs-2"></i>
                         </div>
                     </div>
+
+                    <!-- Step 3 -->
+                    <div class="col-6 col-lg-3 position-relative text-center process-step animate-on-scroll fade-up" style="animation-delay: 0.2s;">
+                        <div class="process-icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle mb-4 shadow" style="width: 76px; height: 76px; background: #ffffff; color: var(--sntti-dark-brown); border: 2px solid #DDAE2F;">
+                            <i class="bi bi-laptop-fill fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2" style="font-size: 19px; color: var(--sntti-dark-brown);">Mode</h4>
+                        <p class="text-dark mb-0 px-xl-2 fw-bold" style="font-size: 15px; line-height: 1.5;">[IN PERSON / ONLINE / BOTH]</p>
+                        
+                        <!-- Arrow -->
+                        <div class="position-absolute d-none d-lg-block process-arrow" style="right: -15px; top: 26px; color: #DDAE2F;">
+                            <i class="bi bi-chevron-right fs-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="col-6 col-lg-3 text-center process-step animate-on-scroll fade-up" style="animation-delay: 0.3s;">
+                        <div class="process-icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle mb-4 shadow" style="width: 76px; height: 76px; background: #ffffff; color: var(--sntti-dark-brown); border: 2px solid #DDAE2F;">
+                            <i class="bi bi-calendar2-check-fill fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2" style="font-size: 19px; color: var(--sntti-dark-brown);">Booking</h4>
+                        <p class="text-dark mb-0 px-xl-2 fw-medium" style="font-size: 15px; line-height: 1.5;">By appointment - WhatsApp <br><span class="fw-bold fs-6">9916095796</span></p>
+                    </div>
                 </div>
+            </div>
             </div>
         </div>
     </section>

@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    SNTTI — PREMIUM ANIMATION SYSTEM
    Senior UI/UX Grade: Soft, Elegant, Refined, Luxurious
    GPU-accelerated only: opacity, transform (translateY/X, scale)
@@ -198,7 +198,9 @@ select {
 .luxury-form-textarea:focus,
 .contact-input:focus,
 .contact-textarea:focus,
-.contact-select:focus {
+.contact-select:focus,
+.form-control-luxury-input:focus,
+.form-control-luxury:focus {
   box-shadow: 0 0 0 3px rgba(233,177,58,0.18), 0 2px 12px rgba(233,177,58,0.1) !important;
   outline: none !important;
 }
@@ -265,8 +267,49 @@ select {
   .hero-carousel .carousel-item img { animation: none !important; }
   .course-showcase-card:hover,
   .why-feature-card:hover,
-  .pl-card:hover { transform: none; }
+  .pl-card:hover,
+  .visiting-step-card:hover { transform: none !important; }
   .btn-hero-primary:hover,
   .btn-consultation:hover,
-  .btn-hero-secondary:hover { transform: none !important; }
+  .btn-hero-secondary:hover,
+  .btn-hero-call:hover,
+  .btn-hero-outline:hover,
+  .btn-luxury-submit:hover { transform: none !important; }
+}
+
+/* 15. SNTTI CONTACT PAGE ANIMATIONS */
+.btn-hero-call,
+.btn-hero-outline,
+.btn-luxury-submit {
+  transition:
+    transform var(--dur-xs) var(--ease-premium),
+    box-shadow var(--dur-xs) var(--ease-premium),
+    background-color var(--dur-xs) ease,
+    border-color var(--dur-xs) ease,
+    color var(--dur-xs) ease !important;
+}
+.btn-hero-call:hover,
+.btn-luxury-submit:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+}
+.btn-hero-outline:hover {
+  transform: translateY(-2px) scale(1.01) !important;
+}
+
+.visiting-step-card {
+  transition:
+    transform var(--dur-sm) var(--ease-premium),
+    box-shadow var(--dur-sm) var(--ease-premium),
+    border-color var(--dur-sm) ease,
+    background-color var(--dur-sm) ease !important;
+}
+.visiting-step-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(90, 29, 22, 0.08) !important;
+}
+.visiting-step-card i {
+  transition: transform var(--dur-sm) var(--ease-premium) !important;
+}
+.visiting-step-card:hover i {
+  transform: scale(1.1) rotate(6deg) !important;
 }
