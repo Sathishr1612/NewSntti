@@ -161,25 +161,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
 
-  // 7. Scroll Animation Observer for Luxury Animations
-  const animatedElements = document.querySelectorAll('.animate-on-scroll');
-  if ('IntersectionObserver' in window && animatedElements.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    });
+  // 7. Robust Scroll Animation Observer for Smooth Reveals
+  const animatedElements = document.querySelectorAll(
+    '.animate-on-scroll, .about-pg-reveal, .about-pg-clip-reveal'
+  );
 
-    animatedElements.forEach(el => observer.observe(el));
+  if ('IntersectionObserver' in window && animatedElements.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.01,
+        rootMargin: '120px 0px 120px 0px',
+      }
+    );
+
+    animatedElements.forEach((el) => {
+      // Immediately reveal elements already near or within viewport on load
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 150 && rect.bottom > -150) {
+        el.classList.add('is-visible');
+      } else {
+        observer.observe(el);
+      }
+    });
   } else {
     // Fallback if IntersectionObserver is not supported
-    animatedElements.forEach(el => el.classList.add('is-visible'));
+    animatedElements.forEach((el) => el.classList.add('is-visible'));
   }
 
   // 8. Swiper.js Carousel Initialization for "Our Courses" Section
@@ -338,5 +352,46 @@ document.addEventListener('DOMContentLoaded', () => {
         successMessage.style.opacity = '1';
       }, 300);
     });
+  }
+});
+
+// 14. Course Editorial Sticky Navigation Active Tab Sync
+document.addEventListener('DOMContentLoaded', () => {
+  const courseTabs = document.querySelectorAll('.editorial-nav-tab');
+  if (courseTabs.length > 0) {
+    courseTabs.forEach((tab) => {
+      tab.addEventListener('click', function () {
+        courseTabs.forEach((t) => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Scrollspy synchronization
+    const sections = ['#ntt-course', '#teacher-training-workshop', '#counselling', '#career-guidance']
+      .map((id) => document.querySelector(id))
+      .filter(Boolean);
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        const scrollPos = window.scrollY + 180;
+        sections.forEach((sec) => {
+          if (
+            scrollPos >= sec.offsetTop &&
+            scrollPos < sec.offsetTop + sec.offsetHeight
+          ) {
+            const targetHref = '#' + sec.id;
+            courseTabs.forEach((tab) => {
+              if (tab.getAttribute('href') === targetHref) {
+                tab.classList.add('active');
+              } else {
+                tab.classList.remove('active');
+              }
+            });
+          }
+        });
+      },
+      { passive: true }
+    );
   }
 });

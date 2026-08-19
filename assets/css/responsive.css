@@ -826,3 +826,91 @@
     max-height: 260px;
   }
 }
+
+/* ==========================================================================
+   SNTTI PREMIUM EDITORIAL EDUCATION RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1199.98px) {
+  .editorial-heading-hero {
+    font-size: 40px;
+  }
+  .editorial-heading-course {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .editorial-container {
+    width: calc(100% - 40px);
+  }
+  .editorial-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .editorial-heading-hero {
+    font-size: 36px;
+  }
+  .editorial-heading-course {
+    font-size: 34px;
+  }
+  .hero-editorial-img,
+  .ntt-editorial-img,
+  .workshop-editorial-img,
+  .counselling-editorial-img,
+  .career-editorial-img {
+    max-width: 100%;
+    height: 340px;
+    margin-top: 20px;
+  }
+  .sticky-course-nav-container {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .editorial-container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .editorial-section {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+  .editorial-heading-hero {
+    font-size: 30px;
+  }
+  .editorial-heading-course {
+    font-size: 28px;
+  }
+  .editorial-number {
+    font-size: 26px;
+  }
+  .editorial-label {
+    font-size: 11px;
+  }
+  .hero-editorial-img,
+  .ntt-editorial-img,
+  .workshop-editorial-img,
+  .counselling-editorial-img,
+  .career-editorial-img {
+    height: 280px;
+  }
+  .btn-editorial-cta {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .editorial-heading-hero {
+    font-size: 26px;
+  }
+  .editorial-heading-course {
+    font-size: 24px;
+  }
+  .editorial-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
