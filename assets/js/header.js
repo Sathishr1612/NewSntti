@@ -3,7 +3,9 @@ var isAboutPage = window.location.pathname.toLowerCase().indexOf('about') !== -1
 var isCoursePage = window.location.pathname.toLowerCase().indexOf('course') !== -1;
 var isContactPage = window.location.pathname.toLowerCase().indexOf('contact') !== -1;
 var isAdmissionsPage = window.location.pathname.toLowerCase().indexOf('admissions') !== -1;
-var isSubPage = isAboutPage || isCoursePage || isContactPage || isAdmissionsPage;
+var isResourcesPage = window.location.pathname.toLowerCase().indexOf('resources') !== -1;
+var isBlogPage = window.location.pathname.toLowerCase().indexOf('blog') !== -1;
+var isSubPage = isAboutPage || isCoursePage || isContactPage || isAdmissionsPage || isResourcesPage || isBlogPage;
 
 // Build link prefix: on subpages, all section anchors point to index.html#...
 var lp = isSubPage ? 'index.html' : '';
@@ -13,10 +15,12 @@ var homeActiveClass = isSubPage ? '' : ' active';
 var aboutActiveClass = isAboutPage ? ' active' : '';
 var courseActiveClass = isCoursePage ? ' active' : '';
 var admissionsActiveClass = isAdmissionsPage ? ' active' : '';
+var resourcesActiveClass = isResourcesPage ? ' active' : '';
 var contactActiveClass = isContactPage ? ' active' : '';
 var mobileHomeActiveClass = isSubPage ? '' : ' active';
 var mobileAboutActiveClass = isAboutPage ? ' active' : '';
 var mobileAdmissionsActiveClass = isAdmissionsPage ? ' active' : '';
+var mobileResourcesActiveClass = isResourcesPage ? ' active' : '';
 var mobileContactActiveClass = isContactPage ? ' active' : '';
 
 // Navbar extra class: subpages have 'scrolled' baked in
@@ -127,7 +131,7 @@ var headerHTML = `<!-- Top Contact Bar -->
             <a class="nav-link${admissionsActiveClass}" href="Admissions.html" id="navAdmissions">Admissions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="${lp}#resources" id="navResources">Resources</a>
+            <a class="nav-link${resourcesActiveClass}" href="resources.html" id="navResources">Resources</a>
           </li>
           <li class="nav-item">
             <a class="nav-link${contactActiveClass}" href="contact.html" id="navContact">Contact</a>
@@ -174,7 +178,7 @@ var headerHTML = `<!-- Top Contact Bar -->
       <a href="Admissions.html" class="mobile-nav-item${mobileAdmissionsActiveClass}" onclick="closeMobileMenu()">
         <i class="bi bi-mortarboard-fill me-3" style="color:#E9B13A; font-size:18px;"></i> Admissions
       </a>
-      <a href="${lp}#resources" class="mobile-nav-item" onclick="closeMobileMenu()">
+      <a href="resources.html" class="mobile-nav-item${mobileResourcesActiveClass}" onclick="closeMobileMenu()">
         <i class="bi bi-folder-fill me-3" style="color:#E9B13A; font-size:18px;"></i> Resources
       </a>
       <a href="contact.html" class="mobile-nav-item${mobileContactActiveClass}" onclick="closeMobileMenu()">

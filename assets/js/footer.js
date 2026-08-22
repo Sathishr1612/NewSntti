@@ -9,7 +9,9 @@ var isAboutPageFooter = window.location.pathname.toLowerCase().indexOf('about') 
 var isCoursePageFooter = window.location.pathname.toLowerCase().indexOf('course') !== -1;
 var isContactPageFooter = window.location.pathname.toLowerCase().indexOf('contact') !== -1;
 var isAdmissionsPageFooter = window.location.pathname.toLowerCase().indexOf('admissions') !== -1;
-var isSubPageFooter = isAboutPageFooter || isCoursePageFooter || isContactPageFooter || isAdmissionsPageFooter;
+var isResourcesPageFooter = window.location.pathname.toLowerCase().indexOf('resources') !== -1;
+var isBlogPageFooter = window.location.pathname.toLowerCase().indexOf('blog') !== -1;
+var isSubPageFooter = isAboutPageFooter || isCoursePageFooter || isContactPageFooter || isAdmissionsPageFooter || isResourcesPageFooter || isBlogPageFooter;
 
 // Build link prefix: on subpages, section anchors point to index.html#...
 var flp = isSubPageFooter ? 'index.html' : '';
@@ -18,7 +20,7 @@ var flp = isSubPageFooter ? 'index.html' : '';
 var footerHomeLink = isSubPageFooter ? 'index.html#home' : '#home';
 var footerAboutLink = 'about.html';
 var footerAdmissionsLink = 'Admissions.html';
-var footerResourcesLink = isSubPageFooter ? 'index.html#resources' : '#resources';
+var footerResourcesLink = 'resources.html';
 var footerContactLink = 'contact.html';
 
 // Footer Courses links
@@ -120,9 +122,9 @@ var footerHTML = `<footer id="footer" class="footer-section">
           \u00A9 2026 Sowmya Nursery Teacher Training Institute (SNTTI). All Rights Reserved.
         </div>
         <div class="d-flex gap-3">
-          <a href="#privacy">Privacy Policy</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
           <span>\u2022</span>
-          <a href="#terms">Terms of Service</a>
+          <a href="terms-of-service.html">Terms of Service</a>
         </div>
       </div>
     </div>

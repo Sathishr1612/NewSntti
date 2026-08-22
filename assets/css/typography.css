@@ -67,7 +67,21 @@ h6,
 .why-card-title,
 .strength-title,
 .pl-card-title,
-.trust-metric-title {
+.trust-metric-title,
+.res-hero-title,
+.blog-hero-title,
+.premium-section-title,
+.res-section-title,
+.res-section-subtitle,
+.res-section-label,
+.res-hero-label,
+.editorial-label,
+.pl-stat-label,
+.pl-partners-label,
+.info-label,
+.nav-tab-label,
+.blog-category,
+.res-cta-title {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
   letter-spacing: normal !important;
 }
@@ -79,6 +93,8 @@ h6,
 /* Hero Heading: 52px, ExtraBold 800, Line-height 1.15 */
 h1,
 .hero-title,
+.res-hero-title,
+.blog-hero-title,
 .hero-section h1 {
   font-size: 52px !important;
   font-weight: 800 !important;
@@ -90,6 +106,10 @@ h2,
 .why-title,
 .pl-heading,
 .section-title,
+.premium-section-title,
+.res-section-title,
+.courses-editorial-title,
+.res-cta-title,
 .testimonial-section h2,
 .gallery-section h2,
 .admissions-section h2,
@@ -101,19 +121,14 @@ h2,
   line-height: 1.2 !important;
 }
 
-/* Courses Editorial Title: Fluid sizing for better column fit */
-.courses-editorial-title {
-  font-size: clamp(28px, 3.5vw, 46px) !important;
-  font-weight: 800 !important;
-  line-height: 1.15 !important;
-}
-
 /* Sub Heading: 22px, Bold 700 */
 h3:not(.card-title):not(.why-card-title):not(.strength-title):not(.pl-card-title):not(.course-card h3):not(.testimonial-card h3):not(.gallery-item h3):not(.faq-item h3):not(.admission-card h3),
 .about-section h3:not(.strength-title):not(.card-title),
 .courses-section h3:not(.card-title),
 .pl-section h3:not(.pl-card-title),
 .section-subtitle,
+.res-section-subtitle,
+.courses-editorial-intro,
 .trust-metric-title,
 .stat-value,
 .pl-stat h3 {
@@ -197,6 +212,14 @@ small,
 .why-header-label,
 .why-callout-eyebrow,
 .courses-header-label,
+.res-section-label,
+.res-hero-label,
+.editorial-label,
+.pl-stat-label,
+.pl-partners-label,
+.info-label,
+.nav-tab-label,
+.blog-category,
 .pl-eyebrow,
 .pl-eyebrow-text,
 .hero-badge-label,

@@ -217,7 +217,9 @@
     margin-bottom: 14px;
   }
 
-  .hero-title {
+  .hero-title,
+  .res-hero-title,
+  .blog-hero-title {
     font-size: clamp(1.8rem, 5.2vw, 2.5rem);
     line-height: 1.2;
     margin-bottom: 16px;
@@ -324,7 +326,9 @@
     padding-bottom: 12px;
   }
 
-  .hero-title {
+  .hero-title,
+  .res-hero-title,
+  .blog-hero-title {
     font-size: 1.65rem;
     line-height: 1.22;
     margin-bottom: 12px;
@@ -483,6 +487,8 @@
   /* Hero Heading */
   h1,
   .hero-title,
+  .res-hero-title,
+  .blog-hero-title,
   .hero-section h1 {
     font-size: 32px !important;
     line-height: 1.15 !important;
@@ -496,6 +502,9 @@
   .why-title,
   .pl-heading,
   .section-title,
+  .premium-section-title,
+  .res-section-title,
+  .res-cta-title,
   .testimonial-section h2,
   .gallery-section h2,
   .admissions-section h2,
@@ -513,6 +522,8 @@
   .courses-section h3:not(.card-title),
   .pl-section h3:not(.pl-card-title),
   .section-subtitle,
+  .res-section-subtitle,
+  .courses-editorial-intro,
   .trust-metric-title,
   .stat-value,
   .pl-stat h3 {
@@ -781,18 +792,15 @@
   }
   .top-header-bar { font-size: 13px; }
   .center-announcement { font-size: 12px !important; }
-  .hero-title { font-size: 3rem !important; }
-  .about-main-title { font-size: 2.2rem !important; }
+  .hero-title, .res-hero-title, .blog-hero-title { font-size: 3.5rem !important; }
+  .about-main-title, .courses-editorial-title, .why-title, .testi-title, .section-title, .premium-section-title, .res-section-title, .res-cta-title, .pl-heading { font-size: 2.5rem !important; }
   .editorial-collage-grid { gap: 15px; }
-  .courses-editorial-title { font-size: 2.2rem !important; }
   .courses-left-col { padding-right: 15px !important; }
   .course-showcase-card .card-title { font-size: 1.1rem !important; }
   .card-body-box { padding: 1rem !important; }
   .course-showcase-card { border-radius: 20px 50px 20px 20px; }
   .card-image-box { border-radius: 20px 50px 0 0; }
-  .why-title { font-size: 2.2rem !important; }
   .why-icon-box { width: 40px; height: 40px; }
-  .testi-title { font-size: 2.2rem !important; }
   .testi-rating-badge {
     padding: 10px 16px !important;
     transform: scale(0.85);
@@ -939,5 +947,31 @@
   
   .map-embed-box {
     height: 300px;
+  }
+}
+
+/* ==========================================================================
+   BLOG ARTICLE MOBILE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .blog-hero-section {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  
+  .blog-hero-img {
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+  }
+  
+  .blog-article-content p,
+  .blog-article-content li {
+    font-size: 1.05rem;
+  }
+  
+  .blog-quote {
+    font-size: 1.25rem;
+    padding: 24px;
+    margin: 32px 0;
   }
 }
