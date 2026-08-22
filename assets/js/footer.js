@@ -19,15 +19,15 @@ var flp = isSubPageFooter ? 'index.html' : '';
 // Footer Quick Links differ between pages
 var footerHomeLink = isSubPageFooter ? 'index.html#home' : '#home';
 var footerAboutLink = 'about.html';
-var footerAdmissionsLink = 'Admissions.html';
+var footerAdmissionsLink = 'admissions.html';
 var footerResourcesLink = 'resources.html';
 var footerContactLink = 'contact.html';
 
 // Footer Courses links
 var footerNttLink = 'course.html#ntt-course';
-var footerWorkshopLink = 'course.html#workshop';
+var footerWorkshopLink = 'course.html#teacher-training-workshop';
 var footerCounsellingLink = 'course.html#counselling';
-var footerCareerLink = 'course.html#career';
+var footerCareerLink = 'course.html#career-guidance';
 
 var footerHTML = `<footer id="footer" class="footer-section">
     <div class="container">
@@ -87,8 +87,7 @@ var footerHTML = `<footer id="footer" class="footer-section">
             <i class="bi bi-geo-alt-fill"></i>
             <a href="https://www.google.com/maps/search/?api=1&query=No.+286,+Sowmya+Nursery+Teacher+Training+Institute+and+Counseling+(SNTTI),+Shree+Maatha+Nilaya,+Krupanidhi+College,+Road,+next+to+Durga+departmental+store,+Gunjur+Village,+Bengaluru,+Karnataka+560087"
               target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none">
-              No. 286, Sowmya Nursery Teacher Training Institute and Counseling (SNTTI), Shree Maatha Nilaya, Krupanidhi
-              College, Road, next to Durga departmental store, Gunjur Village, Bengaluru, Karnataka 560087
+              No. 286, Shree Maatha Nilaya, Near Krupanidhi College, Gunjur Village, Bengaluru, 560087
             </a>
           </div>
 

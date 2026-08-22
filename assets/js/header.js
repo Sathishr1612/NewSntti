@@ -29,19 +29,15 @@ var navbarScrolledClass = isSubPage ? ' scrolled' : '';
 // Logo href
 var logoHref = isSubPage ? 'index.html' : '#';
 
-// Book Consultation button: index uses anchor, subpages use modal
-var consultationBtn = isSubPage
-  ? '<a href="#consultationModal" class="btn btn-consultation" data-bs-toggle="modal" data-bs-target="#consultationModal">\n          <i class="bi bi-calendar-check-fill"></i> Book Consultation\n        </a>'
-  : '<a href="#contact-enquiry" class="btn btn-consultation">\n          <i class="bi bi-calendar-check-fill"></i> Book Consultation\n        </a>';
+// Book Consultation button: link to contact page
+var consultationBtn = '<a href="contact.html" class="btn btn-consultation">\n          <i class="bi bi-calendar-check-fill"></i> Book Consultation\n        </a>';
 
 // Mobile menu: Home link href and footer CTA
 var mobileHomeHref = isSubPage ? 'index.html#home' : '#home';
 
 
 // Mobile footer CTA
-var mobileCTA = isSubPage
-  ? '<a href="#consultationModal" class="btn btn-consultation btn-mobile-consultation w-100 justify-content-center"\n        data-bs-toggle="modal" data-bs-target="#consultationModal" onclick="closeMobileMenu()">\n        <i class="bi bi-calendar-check-fill me-2"></i> Book Free Consultation\n      </a>'
-  : '<a href="#contact-enquiry" class="btn btn-consultation btn-mobile-consultation w-100 justify-content-center"\n        onclick="closeMobileMenu()">\n        <i class="bi bi-calendar-check-fill me-2"></i> Book Free Consultation\n      </a>';
+var mobileCTA = '<a href="contact.html" class="btn btn-consultation btn-mobile-consultation w-100 justify-content-center"\n        onclick="closeMobileMenu()">\n        <i class="bi bi-calendar-check-fill me-2"></i> Book Free Consultation\n      </a>';
 
 var headerHTML = `<!-- Top Contact Bar -->
   <header id="header-top" class="top-header-bar d-flex align-items-center">
@@ -128,7 +124,7 @@ var headerHTML = `<!-- Top Contact Bar -->
             <a class="nav-link${courseActiveClass}" href="course.html" id="navCourses">Courses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link${admissionsActiveClass}" href="Admissions.html" id="navAdmissions">Admissions</a>
+            <a class="nav-link${admissionsActiveClass}" href="admissions.html" id="navAdmissions">Admissions</a>
           </li>
           <li class="nav-item">
             <a class="nav-link${resourcesActiveClass}" href="resources.html" id="navResources">Resources</a>
@@ -175,7 +171,7 @@ var headerHTML = `<!-- Top Contact Bar -->
         <i class="bi bi-book-fill me-3" style="color:#E9B13A; font-size:18px;"></i> Courses
       </a>
 
-      <a href="Admissions.html" class="mobile-nav-item${mobileAdmissionsActiveClass}" onclick="closeMobileMenu()">
+      <a href="admissions.html" class="mobile-nav-item${mobileAdmissionsActiveClass}" onclick="closeMobileMenu()">
         <i class="bi bi-mortarboard-fill me-3" style="color:#E9B13A; font-size:18px;"></i> Admissions
       </a>
       <a href="resources.html" class="mobile-nav-item${mobileResourcesActiveClass}" onclick="closeMobileMenu()">

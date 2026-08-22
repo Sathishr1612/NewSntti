@@ -66,48 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileSubmenu = document.getElementById('mobileSubmenu');
   // The onclick="toggleMobileSubmenu(event)" on the element handles the toggle.
 
-  // 4. Consultation Form Submission Handler
-  const consultationForm = document.getElementById('consultationForm');
-  const formSuccessMessage = document.getElementById('formSuccessMessage');
-
-  if (consultationForm) {
-    consultationForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const submitBtn = consultationForm.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing Request...`;
-      }
-
-      // Simulate quick secure server submission
-      setTimeout(() => {
-        consultationForm.reset();
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = `<i class="bi bi-check-circle-fill me-2"></i> Request Submitted!`;
-        }
-
-        if (formSuccessMessage) {
-          formSuccessMessage.classList.remove('d-none');
-        }
-
-        setTimeout(() => {
-          if (formSuccessMessage) formSuccessMessage.classList.add('d-none');
-          if (submitBtn) {
-            submitBtn.innerHTML = `Submit Consultation Request <i class="bi bi-arrow-right ms-1"></i>`;
-          }
-          // Close Bootstrap modal if open
-          const modalEl = document.getElementById('consultationModal');
-          if (modalEl && window.bootstrap) {
-            const modalInstance = bootstrap.Modal.getInstance(modalEl);
-            if (modalInstance) modalInstance.hide();
-          }
-        }, 2200);
-      }, 1000);
-    });
-  }
-
   // 5. Bootstrap Carousel Sync with Indicator Dots & Counter
   const heroCarouselEl = document.getElementById('heroBannerCarousel');
   if (heroCarouselEl) {
