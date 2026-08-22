@@ -744,6 +744,7 @@
   .hero-text-block {
     max-width: 620px;
     color: var(--white);
+    padding-left: 70px;
   }
 
   .hero-badge-label {
@@ -3628,7 +3629,7 @@
   .about-pg-value-card {
     position: relative;
     min-height: 360px;
-    border-radius: 90px 20px 90px 20px;
+    border-radius: 16px 24px 16px 24px;
     overflow: hidden;
     padding: 40px 30px;
     display: flex;
@@ -3985,7 +3986,7 @@
     padding: 140px 0;
     position: relative;
     text-align: center;
-    background-image: url('../images/sntti-new/teacher-training.webp');
+    background-image: url('../images/sntti-new/training-course.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -4271,6 +4272,7 @@
     background: transparent;
     border: 1px solid transparent;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
   }
 
   .editorial-nav-tab .nav-tab-badge {

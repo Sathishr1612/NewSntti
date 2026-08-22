@@ -209,6 +209,7 @@
 
   .hero-text-block {
     max-width: 100%;
+    padding-left: 0;
   }
 
   .hero-badge-label {
