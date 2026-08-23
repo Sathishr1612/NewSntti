@@ -77,10 +77,6 @@ var headerHTML = `<!-- Top Contact Bar -->
               class="social-icon-link" aria-label="Instagram">
               <i class="bi bi-instagram"></i>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-link"
-              aria-label="YouTube">
-              <i class="bi bi-youtube"></i>
-            </a>
           </div>
           <!-- <button type="button" class="btn btn-header-admission" data-bs-toggle="modal"
             data-bs-target="#consultationModal">

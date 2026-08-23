@@ -53,6 +53,10 @@ var footerHTML = `<footer id="footer" class="footer-section">
               class="footer-social-btn" aria-label="Instagram">
               <i class="bi bi-instagram"></i>
             </a>
+            <a href="https://www.linkedin.com/company/sowmya-nursery-teacher-training-institute-and-counselling/posts/?feedView=all" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
           </div>
         </div>
 
