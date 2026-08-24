@@ -3406,6 +3406,32 @@
     }
   }
 
+  /* Legal Page Hero (Privacy Policy & Terms) */
+  .legal-pg-hero {
+    position: relative;
+    padding: 120px 0 60px 0;
+    min-height: 250px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .legal-pg-hero .hero-title {
+    color: #FFFFFF;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  }
+
+  @media (max-width: 768px) {
+    .legal-pg-hero {
+      padding: 100px 0 40px 0;
+      min-height: 180px;
+    }
+  }
+
   /* Page-Specific Hero Backgrounds */
   .hero-bg-about {
     background-image: url('../images/sntti-new/training-course.webp');
