@@ -93,7 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Active Section ScrollSpy Highlighting
+  // 6. Active Section ScrollSpy Highlighting (Disabled for multi-page site)
+  // This logic was removing the .active class from page links (like about.html) on scroll
+  /*
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.desktop-nav-menu .nav-link, .mobile-nav-item');
 
@@ -118,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
+  */
 
   // 7. Robust Scroll Animation Observer for Smooth Reveals
   const animatedElements = document.querySelectorAll(
