@@ -199,17 +199,41 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Fallback manual click handlers to guarantee navigation works
+    const prevBtn = document.getElementById('coursesPrevBtn');
+    const nextBtn = document.getElementById('coursesNextBtn');
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        coursesSwiper.slidePrev();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        coursesSwiper.slideNext();
+      });
+    }
+
     function updateCoursesCounter(swiper) {
       const currentEl = document.getElementById('coursesSlideCurrent');
       const totalEl = document.getElementById('coursesSlideTotal');
 
       if (currentEl) {
-        const currentPage = (swiper.snapIndex !== undefined ? swiper.snapIndex : swiper.activeIndex) + 1;
+        // Use realIndex for correct slide number in loop mode
+        const currentPage = (swiper.realIndex !== undefined ? swiper.realIndex : 0) + 1;
         currentEl.textContent = String(currentPage).padStart(2, '0');
       }
 
       if (totalEl) {
-        const totalPages = swiper.snapGrid ? swiper.snapGrid.length : swiper.slides.length;
+        // In loop mode, swiper.slides includes duplicated slides.
+        // We count only the original slides.
+        let totalPages = 0;
+        if (swiper.slides) {
+            totalPages = Array.from(swiper.slides).filter(slide => !slide.classList.contains('swiper-slide-duplicate')).length;
+        } else {
+            totalPages = document.querySelectorAll('.courses-swiper .swiper-slide:not(.swiper-slide-duplicate)').length;
+        }
         totalEl.textContent = String(totalPages).padStart(2, '0');
       }
     }

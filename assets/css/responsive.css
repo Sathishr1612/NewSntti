@@ -102,7 +102,7 @@
   }
 
   .courses-editorial-title {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
 
   .card-image-box {
@@ -722,8 +722,10 @@
   }
 
   :root {
-    --shift-left: -1264px; /* 4 cards * (300px + 16px) */
-    --shift-right: -948px; /* 3 cards * (300px + 16px) */
+    --shift-left: -1264px;
+    /* 4 cards * (300px + 16px) */
+    --shift-right: -948px;
+    /* 3 cards * (300px + 16px) */
   }
 
   .marquee-track {
@@ -792,27 +794,77 @@
     padding: 8px 10px !important;
     font-size: 14px !important;
   }
+
   .btn-consultation {
     padding: 10px 16px !important;
     font-size: 14px !important;
   }
-  .top-header-bar { font-size: 13px; }
-  .center-announcement { font-size: 12px !important; }
-  .hero-title, .res-hero-title, .blog-hero-title { font-size: 3.5rem !important; }
-  .about-main-title, .courses-editorial-title, .why-title, .testi-title, .section-title, .premium-section-title, .res-section-title, .res-cta-title, .pl-heading { font-size: 2.5rem !important; }
-  .editorial-collage-grid { gap: 15px; }
-  .courses-left-col { padding-right: 15px !important; }
-  .course-showcase-card .card-title { font-size: 1.1rem !important; }
-  .card-body-box { padding: 1rem !important; }
-  .course-showcase-card { border-radius: 20px 50px 20px 20px; }
-  .card-image-box { border-radius: 20px 50px 0 0; }
-  .why-icon-box { width: 40px; height: 40px; }
+
+  .top-header-bar {
+    font-size: 13px;
+  }
+
+  .center-announcement {
+    font-size: 12px !important;
+  }
+
+  .hero-title,
+  .res-hero-title,
+  .blog-hero-title {
+    font-size: 3.5rem !important;
+  }
+
+  .about-main-title,
+  .courses-editorial-title,
+  .why-title,
+  .testi-title,
+  .section-title,
+  .premium-section-title,
+  .res-section-title,
+  .res-cta-title,
+  .pl-heading {
+    font-size: 2.5rem !important;
+  }
+
+  .editorial-collage-grid {
+    gap: 15px;
+  }
+
+  .courses-left-col {
+    padding-right: 15px !important;
+  }
+
+  .course-showcase-card .card-title {
+    font-size: 1.1rem !important;
+  }
+
+  .card-body-box {
+    padding: 1rem !important;
+  }
+
+  .course-showcase-card {
+    border-radius: 20px 50px 20px 20px;
+  }
+
+  .card-image-box {
+    border-radius: 20px 50px 0 0;
+  }
+
+  .why-icon-box {
+    width: 40px;
+    height: 40px;
+  }
+
   .testi-rating-badge {
     padding: 10px 16px !important;
     transform: scale(0.85);
     transform-origin: left center;
   }
-  .testi-card { width: 320px; padding: 24px; }
+
+  .testi-card {
+    width: 320px;
+    padding: 24px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -823,6 +875,7 @@
     position: static;
     margin-top: 40px;
   }
+
   .pl-img-frame {
     border-radius: 20px 60px 20px 60px;
     aspect-ratio: 16/9;
@@ -849,6 +902,7 @@
   .editorial-heading-hero {
     font-size: 40px;
   }
+
   .editorial-heading-course {
     font-size: 38px;
   }
@@ -858,16 +912,20 @@
   .editorial-container {
     width: calc(100% - 40px);
   }
+
   .editorial-section {
     padding-top: 70px;
     padding-bottom: 70px;
   }
+
   .editorial-heading-hero {
     font-size: 36px;
   }
+
   .editorial-heading-course {
     font-size: 34px;
   }
+
   .hero-editorial-img,
   .ntt-editorial-img,
   .workshop-editorial-img,
@@ -877,6 +935,7 @@
     height: 340px;
     margin-top: 20px;
   }
+
   .sticky-course-nav-container {
     display: none !important;
   }
@@ -888,22 +947,28 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+
   .editorial-section {
     padding-top: 55px;
     padding-bottom: 55px;
   }
+
   .editorial-heading-hero {
     font-size: 30px;
   }
+
   .editorial-heading-course {
     font-size: 28px;
   }
+
   .editorial-number {
     font-size: 26px;
   }
+
   .editorial-label {
     font-size: 11px;
   }
+
   .hero-editorial-img,
   .ntt-editorial-img,
   .workshop-editorial-img,
@@ -911,6 +976,7 @@
   .career-editorial-img {
     height: 280px;
   }
+
   .btn-editorial-cta {
     width: 100%;
   }
@@ -920,9 +986,11 @@
   .editorial-heading-hero {
     font-size: 26px;
   }
+
   .editorial-heading-course {
     font-size: 24px;
   }
+
   .editorial-container {
     padding-left: 20px;
     padding-right: 20px;
@@ -934,15 +1002,15 @@
    -------------------------------------------------------------------------- */
 
 
-  
+
 
 }
 
 @media (max-width: 767.98px) {
 
-  
 
-  
+
+
   .map-embed-box {
     height: 340px;
   }
@@ -950,7 +1018,7 @@
 
 @media (max-width: 480px) {
 
-  
+
   .map-embed-box {
     height: 300px;
   }
@@ -964,17 +1032,17 @@
     padding-top: 80px;
     padding-bottom: 40px;
   }
-  
+
   .blog-hero-img {
     aspect-ratio: 16 / 9;
     border-radius: 16px;
   }
-  
+
   .blog-article-content p,
   .blog-article-content li {
     font-size: 1.05rem;
   }
-  
+
   .blog-quote {
     font-size: 1.25rem;
     padding: 24px;

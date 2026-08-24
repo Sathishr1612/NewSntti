@@ -108,7 +108,6 @@ h2,
 .section-title,
 .premium-section-title,
 .res-section-title,
-.courses-editorial-title,
 .res-cta-title,
 .testimonial-section h2,
 .gallery-section h2,
@@ -117,6 +116,13 @@ h2,
 .cta-section h2,
 .contact-section h2 {
   font-size: 52px !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+}
+
+/* Reduced size for courses editorial title */
+.courses-editorial-title {
+  font-size: 42px !important;
   font-weight: 800 !important;
   line-height: 1.2 !important;
 }
