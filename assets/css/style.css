@@ -2627,7 +2627,7 @@
     overflow: hidden;
     width: 100%;
     position: relative;
-    display: flex;
+    display: block;
     padding: 24px 0;
   }
 
@@ -2635,8 +2635,7 @@
     display: flex;
     gap: 22px;
     width: max-content;
-    padding: 12px 0;
-    transition-timing-function: linear !important;
+    padding: 12px 22px 12px 0;
   }
 
   /* Premium testimonial cards */

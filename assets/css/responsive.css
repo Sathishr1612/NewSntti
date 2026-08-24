@@ -721,9 +721,14 @@
     border-radius: 20px;
   }
 
+  :root {
+    --shift-left: -1264px; /* 4 cards * (300px + 16px) */
+    --shift-right: -948px; /* 3 cards * (300px + 16px) */
+  }
+
   .marquee-track {
     gap: 16px;
-    padding: 8px 0;
+    padding: 8px 16px 8px 0;
   }
 
   .marquee-container {

@@ -223,7 +223,28 @@ select {
   transform: translateY(-6px) scale(1.01);
   box-shadow: 0 18px 44px rgba(90,29,22,0.13);
 }
+.marquee-left {
+  animation: marqueeLeft 60s linear infinite;
+}
 
+.marquee-right {
+  animation: marqueeRight 60s linear infinite;
+}
+
+:root {
+  --shift-left: -1768px; /* 4 cards * (420px + 22px) */
+  --shift-right: -1326px; /* 3 cards * (420px + 22px) */
+}
+
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(var(--shift-left)); }
+}
+
+@keyframes marqueeRight {
+  0% { transform: translateX(var(--shift-right)); }
+  100% { transform: translateX(0); }
+}
 /* 10. COURSE NAV BUTTONS */
 .courses-nav-btn {
   transition:
@@ -252,7 +273,9 @@ select {
 
 /* 13. PREFERS-REDUCED-MOTION */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *:not(.marquee-left):not(.marquee-right), 
+  *::before, 
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

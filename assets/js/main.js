@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.closeMobileMenu = closeMobileMenu;
 
   // Expose toggleMobileSubmenu globally (called from onclick in HTML)
-  window.toggleMobileSubmenu = function(e) {
+  window.toggleMobileSubmenu = function (e) {
     e.preventDefault();
     const mobileSubmenu = document.getElementById('mobileSubmenu');
     const toggle = document.getElementById('mobileCoursesToggle');
@@ -160,8 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
       slidesPerView: 1,
       spaceBetween: 24,
       grabCursor: true,
-      loop: false,
-      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      speed: 800,
       observer: true,
       observeParents: true,
       navigation: {
@@ -218,69 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true, once: true });
   }
 
-  // 12. Testimonials Marquee via Swiper.js (Premium Smooth Scroll & Touch Drag)
-  const marqueeContainers = document.querySelectorAll('.marquee-container');
-  if (marqueeContainers.length > 0 && typeof Swiper !== 'undefined') {
-
-    const initTestiSwiper = (container, reverseDirection) => {
-      const swiper = new Swiper(container, {
-        wrapperClass: 'marquee-track',
-        slideClass: 'testi-card',
-        slidesPerView: 'auto',
-        loop: true,
-        speed: 6000, // Smooth continuous speed (ms per slide)
-        freeMode: true,
-        freeModeMomentum: false, // Prevents coasting after release for better control
-        autoplay: {
-          delay: 0,
-          disableOnInteraction: false,
-          reverseDirection: reverseDirection
-        },
-        grabCursor: true,
-        allowTouchMove: true,
-      });
-
-      // Advanced Pause & Resume Logic for Touch and Hover
-      let interactionTimeout;
-
-      const pauseMarquee = () => {
-        if (swiper.autoplay.running) {
-          swiper.autoplay.stop();
-        }
-        clearTimeout(interactionTimeout);
-      };
-
-      const resumeMarquee = () => {
-        clearTimeout(interactionTimeout);
-        interactionTimeout = setTimeout(() => {
-          if (!swiper.autoplay.running) {
-            swiper.autoplay.start();
-          }
-        }, 2000); // Resume 2 seconds after release
-      };
-
-      // Desktop Hover Events
-      container.addEventListener('mouseenter', pauseMarquee);
-      container.addEventListener('mouseleave', resumeMarquee);
-
-      // Mobile / Touch Drag Events
-      swiper.on('touchStart', pauseMarquee);
-      swiper.on('sliderMove', pauseMarquee);
-      swiper.on('touchEnd', resumeMarquee);
-
-      return swiper;
-    };
-
-    // Top Row: Moves Left
-    if (marqueeContainers[0]) {
-      initTestiSwiper(marqueeContainers[0], false);
-    }
-
-    // Bottom Row: Moves Right
-    if (marqueeContainers[1]) {
-      initTestiSwiper(marqueeContainers[1], true);
-    }
-  }
 });
 
 // 13. Get in Touch Form Submission Logic
@@ -291,22 +232,22 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mainContactForm && successMessage) {
     mainContactForm.addEventListener('submit', function (e) {
       e.preventDefault(); // Prevent page reload
-      
+
       // Hide the form with a smooth fade
       mainContactForm.style.transition = 'opacity 0.3s ease';
       mainContactForm.style.opacity = '0';
-      
+
       setTimeout(() => {
         mainContactForm.style.display = 'none';
-        
+
         // Show success message
         successMessage.classList.remove('d-none');
         successMessage.style.opacity = '0';
         successMessage.style.transition = 'opacity 0.5s ease';
-        
+
         // Trigger reflow
         void successMessage.offsetWidth;
-        
+
         successMessage.style.opacity = '1';
       }, 300);
     });
