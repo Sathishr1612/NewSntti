@@ -166,6 +166,7 @@ h3:not(.card-title):not(.why-card-title):not(.strength-title):not(.pl-card-title
 
 /* Body Text: 16px, Regular 400, Line-height 1.8 */
 p,
+li,
 .about-lead-text,
 .hero-paragraph,
 .why-description,
