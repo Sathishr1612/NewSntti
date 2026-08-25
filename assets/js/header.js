@@ -77,7 +77,7 @@ var headerHTML = `<!-- Top Contact Bar -->
               class="social-icon-link" aria-label="Instagram">
               <i class="bi bi-instagram"></i>
             </a>
-            
+      
             <a href="https://www.linkedin.com/company/sowmya-nursery-teacher-training-institute-and-counselling/posts/?feedView=all" target="_blank" rel="noopener noreferrer"
               class="social-icon-link" aria-label="LinkedIn">
               <i class="bi bi-linkedin"></i>
