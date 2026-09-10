@@ -302,3 +302,40 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 });
+
+// 15. Testimonial Horizontal Swipe / Drag Support
+document.addEventListener('DOMContentLoaded', () => {
+  const marqueeContainers = document.querySelectorAll('.marquee-container');
+  marqueeContainers.forEach((container) => {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    container.addEventListener('mousedown', (e) => {
+      isDown = true;
+      container.style.cursor = 'grabbing';
+      container.style.scrollSnapType = 'none';
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+
+    const stopDragging = () => {
+      if (!isDown) return;
+      isDown = false;
+      container.style.cursor = 'grab';
+      container.style.scrollSnapType = 'x mandatory';
+    };
+
+    container.addEventListener('mouseleave', stopDragging);
+    container.addEventListener('mouseup', stopDragging);
+
+    container.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      container.scrollLeft = scrollLeft - walk;
+    });
+  });
+});
+

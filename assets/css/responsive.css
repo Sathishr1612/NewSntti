@@ -613,32 +613,154 @@
 
 
 
+@media (max-width: 991.98px) {
+  .founder-img-frame {
+    margin-bottom: 25px;
+    max-width: 400px;
+  }
+
+  .founder-photo {
+    height: 420px;
+  }
+}
+
 @media (max-width: 768px) {
   .about-section {
     padding: 60px 0 40px;
     margin-top: 40px;
   }
 
+  .founder-img-frame {
+    margin-bottom: 30px;
+    max-width: 330px;
+  }
+
+  .founder-photo {
+    height: 350px;
+  }
+
   .about-main-title {
     font-size: 26px !important;
   }
 
+  /* ==========================================
+     ADMISSIONS PAGE MOBILE SPACING REFINEMENTS
+     ========================================== */
   .admissions-overview-section {
-    padding-bottom: 20px !important;
-  }
-
-  .admissions-overview-section .py-5 {
-    padding-bottom: 10px !important;
+    padding: 40px 0 25px !important;
   }
 
   .admissions-process-section {
-    padding: 50px 0 50px !important;
+    padding: 40px 0 !important;
+  }
+
+  .eligibility-section {
+    padding: 40px 0 !important;
+  }
+
+  .enquiry-section {
+    padding: 40px 0 30px !important;
+  }
+
+  .admissions-faq {
+    padding: 35px 0 45px !important;
+  }
+
+  .admissions-faq .row.g-5 {
+    --bs-gutter-y: 1.5rem !important;
+  }
+
+  .admissions-faq h2 {
+    font-size: 2rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .admissions-faq br {
+    display: none;
+  }
+
+  .admissions-faq .btn-faq-lux {
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-accordion-lux .accordion-item {
+    margin-bottom: 12px !important;
+    border-radius: 12px !important;
+  }
+
+  .faq-accordion-lux .accordion-button {
+    font-size: 1.02rem !important;
+    padding: 16px 18px !important;
+  }
+
+  .faq-accordion-lux .accordion-body {
+    padding: 0 18px 18px 18px !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* ==========================================
+     CONTACT PAGE MOBILE SPACING REFINEMENTS
+     ========================================== */
+  .premium-admissions-section {
+    padding: 40px 0 30px !important;
+  }
+
+  .premium-admissions-section .mb-5.pb-3 {
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 0 !important;
+  }
+
+  .premium-section-title {
+    font-size: 1.75rem !important;
+  }
+
+  .premium-section-desc {
+    font-size: 0.98rem !important;
+  }
+
+  .luxury-info-panel,
+  .luxury-form-card {
+    padding: 30px 20px !important;
+  }
+
+  .visiting-premium-section {
+    padding: 40px 0 !important;
+  }
+
+  .visiting-premium-section h2.display-5 {
+    font-size: 1.85rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .visiting-premium-section .row.g-5 {
+    --bs-gutter-y: 2rem !important;
+  }
+
+  .quote-premium-box {
+    padding: 16px !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .quote-premium-box p {
+    font-size: 1rem !important;
+  }
+
+  .visit-feature-card {
+    padding: 22px 18px !important;
+  }
+
+  .map-embed-box {
+    height: 320px !important;
+    border-radius: 16px !important;
   }
 }
 
 
 /* ==========================================================================
-   SECTION 3.5: TESTIMONIALS (Mobile Marquee)
+   SECTION 3.5: TESTIMONIALS (Mobile Swipeable Cards)
    ========================================================================== */
 /* ── Responsive: Tablet & below ── */
 @media (max-width: 991.98px) {
@@ -708,10 +830,42 @@
     display: none !important;
   }
 
+  /* Enable smooth horizontal touch swiping */
+  .marquee-container {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    cursor: grab;
+    padding: 12px 0 !important;
+    display: flex !important;
+  }
+
+  .marquee-container::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+    display: flex !important;
+    gap: 16px !important;
+    width: max-content !important;
+    padding: 6px 15px !important;
+  }
+
   .testi-card {
-    width: 340px;
-    height: auto;
-    min-height: 290px;
+    width: min(85vw, 340px) !important;
+    height: auto !important;
+    min-height: 270px !important;
+    scroll-snap-align: center !important;
+    flex-shrink: 0 !important;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
   /* Allow card footer to wrap on narrow cards */
@@ -748,27 +902,20 @@
   }
 
   .testi-card {
-    width: 300px;
-    height: auto;
-    min-height: 250px;
-    padding: 24px;
-    border-radius: 20px;
-  }
-
-  :root {
-    --shift-left: -1264px;
-    /* 4 cards * (300px + 16px) */
-    --shift-right: -948px;
-    /* 3 cards * (300px + 16px) */
+    width: min(88vw, 310px) !important;
+    height: auto !important;
+    min-height: 240px !important;
+    padding: 24px !important;
+    border-radius: 20px !important;
   }
 
   .marquee-track {
-    gap: 16px;
-    padding: 8px 16px 8px 0;
+    gap: 14px !important;
+    padding: 6px 12px !important;
   }
 
   .marquee-container {
-    padding: 12px 0;
+    padding: 8px 0 !important;
   }
 }
 

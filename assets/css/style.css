@@ -1095,10 +1095,14 @@
     left: -80px;
     width: 360px;
     height: 360px;
-    background: rgba(90, 29, 22, 0.03);
-    filter: blur(70px);
     border-radius: 50%;
     pointer-events: none;
+  }
+
+  .founder-photo {
+    height: 520px;
+    object-fit: cover;
+    object-position: top center;
   }
 
   /* --------------------------------------------------------------------------
@@ -4573,7 +4577,7 @@
 
   /* 3. VISITING US PREMIUM SECTION */
   .visiting-premium-section {
-    padding: 120px 0;
+    padding: 90px 0;
     background-color: var(--white);
     position: relative;
     overflow: hidden;
@@ -4699,6 +4703,7 @@
 
   /* 1. Admissions Overview Section */
   .admissions-overview-section {
+    padding: 75px 0;
     background-color: #FDFDFB;
     position: relative;
     overflow: hidden;
