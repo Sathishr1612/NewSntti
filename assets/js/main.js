@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Full-Screen Mobile Navigation Toggle
   const mobileNavToggle = document.getElementById('mobileNavToggle');
   const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-item:not(#mobileCoursesToggle), .mobile-submenu-item');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-item:not(#mobileCoursesToggle):not(#mobileResourcesToggle), .mobile-submenu-item');
 
   function toggleMobileMenu() {
     const isOpen = mobileNavToggle?.classList.contains('active');
@@ -45,10 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Expose toggleMobileSubmenu globally (called from onclick in HTML)
   window.toggleMobileSubmenu = function (e) {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const mobileSubmenu = document.getElementById('mobileSubmenu');
     const toggle = document.getElementById('mobileCoursesToggle');
     if (mobileSubmenu) mobileSubmenu.classList.toggle('open');
+    if (toggle) toggle.classList.toggle('open');
+  };
+
+  // Expose toggleMobileResourcesSubmenu globally for Resources
+  window.toggleMobileResourcesSubmenu = function (e) {
+    if (e) e.preventDefault();
+    const mobileResourcesSubmenu = document.getElementById('mobileResourcesSubmenu');
+    const toggle = document.getElementById('mobileResourcesToggle');
+    if (mobileResourcesSubmenu) mobileResourcesSubmenu.classList.toggle('open');
     if (toggle) toggle.classList.toggle('open');
   };
 
@@ -206,13 +215,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('coursesPrevBtn');
     const nextBtn = document.getElementById('coursesNextBtn');
     if (prevBtn) {
-      prevBtn.addEventListener('click', function(e) {
+      prevBtn.addEventListener('click', function (e) {
         e.preventDefault();
         coursesSwiper.slidePrev();
       });
     }
     if (nextBtn) {
-      nextBtn.addEventListener('click', function(e) {
+      nextBtn.addEventListener('click', function (e) {
         e.preventDefault();
         coursesSwiper.slideNext();
       });
@@ -233,9 +242,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // We count only the original slides.
         let totalPages = 0;
         if (swiper.slides) {
-            totalPages = Array.from(swiper.slides).filter(slide => !slide.classList.contains('swiper-slide-duplicate')).length;
+          totalPages = Array.from(swiper.slides).filter(slide => !slide.classList.contains('swiper-slide-duplicate')).length;
         } else {
-            totalPages = document.querySelectorAll('.courses-swiper .swiper-slide:not(.swiper-slide-duplicate)').length;
+          totalPages = document.querySelectorAll('.courses-swiper .swiper-slide:not(.swiper-slide-duplicate)').length;
         }
         totalEl.textContent = String(totalPages).padStart(2, '0');
       }
@@ -251,35 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// 13. Get in Touch Form Submission Logic
-document.addEventListener('DOMContentLoaded', () => {
-  const mainContactForm = document.getElementById('mainContactForm');
-  const successMessage = document.getElementById('contactSuccessMessage');
 
-  if (mainContactForm && successMessage) {
-    mainContactForm.addEventListener('submit', function (e) {
-      e.preventDefault(); // Prevent page reload
-
-      // Hide the form with a smooth fade
-      mainContactForm.style.transition = 'opacity 0.3s ease';
-      mainContactForm.style.opacity = '0';
-
-      setTimeout(() => {
-        mainContactForm.style.display = 'none';
-
-        // Show success message
-        successMessage.classList.remove('d-none');
-        successMessage.style.opacity = '0';
-        successMessage.style.transition = 'opacity 0.5s ease';
-
-        // Trigger reflow
-        void successMessage.offsetWidth;
-
-        successMessage.style.opacity = '1';
-      }, 300);
-    });
-  }
-});
 
 // 14. Course Editorial Sticky Navigation Active Tab Sync
 document.addEventListener('DOMContentLoaded', () => {

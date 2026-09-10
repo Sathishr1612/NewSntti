@@ -129,15 +129,15 @@
 }
 
 /* --------------------------------------------------------------------------
-   Header + Navbar + Hero — Tablet & Mobile (max-width: 991.98px)
+   Header + Navbar + Hero — Tablet & Mobile (max-width: 1199.98px)
    -------------------------------------------------------------------------- */
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
   .top-header-bar {
     font-size: 0.78rem;
   }
 
   .mobile-nav-toggle {
-    display: flex;
+    display: flex !important;
   }
 
   .desktop-nav-menu,
@@ -308,8 +308,30 @@
     display: none;
   }
 
+  .brand-logo-img {
+    height: 56px;
+    max-width: 180px;
+  }
+
+  .mobile-nav-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
   .mobile-nav-item {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo-img {
+    height: 48px;
+    max-width: 155px;
+  }
+
+  .mobile-nav-toggle {
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -799,19 +821,35 @@
 
 
 /* --------------------------------------------------------------------------
-   Small Desktop / Tablet Landscape (min-width: 992px and max-width: 1199.98px)
+   Standard Laptop / Medium Desktop (min-width: 1200px and max-width: 1399.98px)
    -------------------------------------------------------------------------- */
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 1200px) and (max-width: 1399.98px) {
   .navbar-nav .nav-link {
-    padding: 8px 10px !important;
+    padding: 6px 10px !important;
     font-size: 14px !important;
   }
 
   .btn-consultation {
-    padding: 10px 16px !important;
-    font-size: 14px !important;
+    padding: 8px 15px !important;
+    font-size: 13.5px !important;
   }
 
+  .brand-logo-img {
+    height: 64px;
+    max-width: 210px;
+  }
+
+  .top-announcement-pill {
+    font-size: 12px;
+    padding: 4px 18px 4px 14px;
+    letter-spacing: 0.6px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Small Desktop / Tablet Landscape (min-width: 992px and max-width: 1199.98px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 992px) and (max-width: 1199.98px) {
   .top-header-bar {
     font-size: 13px;
   }

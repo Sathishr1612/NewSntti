@@ -28,6 +28,7 @@ var footerNttLink = 'course.html#ntt-course';
 var footerWorkshopLink = 'course.html#teacher-training-workshop';
 var footerCounsellingLink = 'course.html#counselling';
 var footerCareerLink = 'course.html#career-guidance';
+var footerBhashaLink = 'course.html#bhasha-setu';
 
 var footerHTML = `<footer id="footer" class="footer-section">
     <div class="container">
@@ -80,6 +81,7 @@ var footerHTML = `<footer id="footer" class="footer-section">
             <li><a href="${footerWorkshopLink}"><i class="bi bi-people"></i> Teacher Training Workshop</a></li>
             <li><a href="${footerCounsellingLink}"><i class="bi bi-heart-pulse"></i> Counselling &amp; Psychology</a></li>
             <li><a href="${footerCareerLink}"><i class="bi bi-compass"></i> Career Guidance</a></li>
+            <li><a href="${footerBhashaLink}"><i class="bi bi-translate"></i> Bhasha Setu (Spoken Language)</a></li>
           </ul>
         </div>
 
@@ -137,3 +139,13 @@ var siteFooterPlaceholder = document.getElementById('site-footer');
 if (siteFooterPlaceholder) {
   siteFooterPlaceholder.innerHTML = footerHTML;
 }
+
+// Start of plumb5 Embed Code
+(function () {
+var p5 = document.createElement('script');
+p5.type = 'text/javascript';
+p5.src = 'https://src.plumb5.com/sntti_in.js';
+var p5s = document.getElementsByTagName('script')[0];
+p5s.parentNode.insertBefore(p5, p5s);
+})();
+// End of plumb5 Embed Code

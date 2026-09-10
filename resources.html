@@ -78,12 +78,12 @@
     <!-- ==========================================================================
          2. BLOG SECTION — Premium Editorial Cards
          ========================================================================== -->
-    <section class="res-blog-section">
+    <section class="res-blog-section" id="blog-section" style="scroll-margin-top: 90px;">
         <div class="container">
             <!-- Section Header -->
             <div class="text-center mb-5 animate-on-scroll fade-up">
-                <div class="res-section-label">FROM OUR BLOG</div>
-                <h2 class="res-section-title">Practical Ideas for Better Teaching.</h2>
+                <div class="res-section-label">OUR BLOG</div>
+                <h2 class="res-section-title">Teaching Ideas <br> & Inspiration</h2>
 
             </div>
 
@@ -96,7 +96,7 @@
                             <div class="res-blog-card-img">
                                 <span class="res-blog-card-floating-category"><i class="bi bi-mortarboard-fill"></i> NTT
                                     Course</span>
-                                <img src="assets/images/sntti-new/blog-image2.jpg"
+                                <img src="assets/images/sntti-new/sntti-blog-1.webp"
                                     alt="What is an NTT Course — SNTTI Blog">
                             </div>
                             <div class="res-blog-card-body">
@@ -141,95 +141,345 @@
     </section>
 
     <!-- ==========================================================================
-         4. GALLERY — Life at SNTTI
+         4. GALLERY — Life at SNTTI (Interactive Showcase & Lightbox)
          ========================================================================== -->
-    <section class="res-gallery-section">
+    <section class="res-gallery-section" id="gallery-section" style="scroll-margin-top: 90px;">
         <div class="container">
-            <div class="text-center mb-5 animate-on-scroll fade-up">
-                <div class="res-section-label">GALLERY</div>
-                <h2 class="res-section-title">Life at SNTTI</h2>
+            <div class="text-center mb-4 animate-on-scroll fade-up">
+                <div class="res-section-label">PHOTO GALLERY</div>
+                <h2 class="res-section-title">Moments That Inspire. Memories That Last.</h2>
             </div>
 
-            <div class="res-gallery-grid animate-on-scroll fade-up">
+            <!-- Gallery Filter Controls -->
+            <div
+                class="d-flex flex-wrap justify-content-center align-items-center gap-2 mb-5 animate-on-scroll fade-up">
+                <button type="button" class="gallery-filter-btn active" data-filter="all">
+                    <i class="bi bi-grid-fill me-1"></i> All Moments
+                </button>
+                <button type="button" class="gallery-filter-btn" data-filter="classroom">
+                    <i class="bi bi-mortarboard-fill me-1"></i> Classrooms & Training
+                </button>
+                <button type="button" class="gallery-filter-btn" data-filter="holi">
+                    <i class="bi bi-palette-fill me-1"></i> Holi Celebrations
+                </button>
+                <button type="button" class="gallery-filter-btn" data-filter="meditation">
+                    <i class="bi bi-flower1 me-1"></i> Meditation Classes
+                </button>
+                <button type="button" class="gallery-filter-btn" data-filter="wellness">
+                    <i class="bi bi-heart-pulse-fill me-1"></i> Wellness Program
+                </button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="res-gallery-grid animate-on-scroll fade-up" id="galleryGrid">
+
                 <!-- 1. Campus & Classrooms -->
-                <div class="res-gallery-item">
+                <div class="res-gallery-item gallery-card" data-category="classroom" data-index="0"
+                    data-title="Campus & Classrooms"
+                    data-desc="Spacious, bright, and supportive learning environment for aspiring teachers."
+                    data-src="assets/images/sntti-new/teacher-class-room.webp">
                     <div class="res-gallery-img-holder">
+                        <span class="gallery-pill-tag"><i class="bi bi-geo-alt-fill"></i> Classroom</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
                         <img src="assets/images/sntti-new/teacher-class-room.webp" alt="SNTTI campus and classrooms"
                             loading="lazy">
-                        <div class="res-gallery-overlay">
-                            <h3 class="res-gallery-caption">
-                                <i class="bi bi-geo-alt-fill"></i> Campus &amp; Classrooms
-                            </h3>
-                        </div>
                     </div>
                 </div>
 
                 <!-- 2. Students at Work -->
-                <div class="res-gallery-item">
+                <div class="res-gallery-item gallery-card" data-category="classroom" data-index="1"
+                    data-title="Hands-on Teaching Practice"
+                    data-desc="Students actively designing learning aids, charts, and playful lesson activities."
+                    data-src="assets/images/sntti-new/teacher-traing-pratice.webp">
                     <div class="res-gallery-img-holder">
+                        <span class="gallery-pill-tag"><i class="bi bi-mortarboard-fill"></i> Training</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
                         <img src="assets/images/sntti-new/teacher-traing-pratice.webp" alt="SNTTI students at work"
                             loading="lazy">
-                        <div class="res-gallery-overlay">
-                            <h3 class="res-gallery-caption">
-                                <i class="bi bi-palette-fill"></i> Students at Work
-                            </h3>
-                        </div>
                     </div>
                 </div>
 
-                <!-- 3. Events & Celebrations -->
-                <div class="res-gallery-item">
+                <!-- 3. Holi Celebrations 1 -->
+                <div class="res-gallery-item gallery-card" data-category="holi" data-index="2"
+                    data-title="Holi Festival with Teachers"
+                    data-desc="Celebrating unity, joy, and the vibrant colours of community life at SNTTI."
+                    data-src="assets/images/sntti-new/holi-celebrations/teachers-holi-7.jpeg">
                     <div class="res-gallery-img-holder">
-                        <img src="assets/images/sntti-new/teacher-training-workshop.webp"
-                            alt="SNTTI events and celebrations" loading="lazy">
-                        <div class="res-gallery-overlay">
-                            <h3 class="res-gallery-caption">
-                                <i class="bi bi-stars"></i> Events &amp; Celebrations
-                            </h3>
-                        </div>
+                        <span class="gallery-pill-tag"><i class="bi bi-stars"></i> Holi Special</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/holi-celebrations/teachers-holi-7.jpeg"
+                            alt="Holi festival with teachers at SNTTI" loading="lazy">
                     </div>
                 </div>
 
-                <!-- 4. Our Students -->
-                <div class="res-gallery-item">
+                <!-- 4. Meditation Class 1 -->
+                <div class="res-gallery-item gallery-card" data-category="meditation" data-index="3"
+                    data-title="Mindfulness & Yoga Session"
+                    data-desc="Nurturing emotional resilience, inner peace, and mental well-being for educators."
+                    data-src="assets/images/sntti-new/meditation-classes/meditation-class.jpeg">
                     <div class="res-gallery-img-holder">
-                        <img src="assets/images/sntti-new/our-students.webp" alt="SNTTI students group" loading="lazy">
-                        <div class="res-gallery-overlay">
-                            <h3 class="res-gallery-caption">
-                                <i class="bi bi-people-fill"></i> Our Students
-                            </h3>
-                        </div>
+                        <span class="gallery-pill-tag"><i class="bi bi-flower1"></i> Mindfulness</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/meditation-classes/meditation-class.jpeg"
+                            alt="Meditation and mindfulness session at SNTTI" loading="lazy">
                     </div>
                 </div>
 
-                <!-- 5. Training Course -->
-                <div class="res-gallery-item">
+                <!-- 5. Wellness Program 1 -->
+                <div class="res-gallery-item gallery-card" data-category="wellness" data-index="4"
+                    data-title="Teacher Wellness & Self-Care"
+                    data-desc="Guided activities dedicated to holistic educator health and community building."
+                    data-src="assets/images/sntti-new/wellness-program/sntti-wellness-10.jpeg">
                     <div class="res-gallery-img-holder">
-                        <img src="assets/images/sntti-new/training-course.webp" alt="SNTTI training course"
+                        <span class="gallery-pill-tag"><i class="bi bi-heart-pulse-fill"></i> Wellness</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/wellness-program/sntti-wellness-10.jpeg"
+                            alt="Teacher wellness workshop at SNTTI" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- 6. Our Students -->
+                <div class="res-gallery-item gallery-card" data-category="classroom" data-index="5"
+                    data-title="Our Graduating Batch"
+                    data-desc="Proud moments as our trained candidates earn their certifications."
+                    data-src="assets/images/sntti-new/admision-banner.jpg">
+                    <div class="res-gallery-img-holder">
+                        <span class="gallery-pill-tag"><i class="bi bi-people-fill"></i> Community</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/admision-banner.jpg" alt="SNTTI students group"
                             loading="lazy">
-                        <div class="res-gallery-overlay">
-                            <h3 class="res-gallery-caption">
-                                <i class="bi bi-book-half"></i> Training Course
-                            </h3>
-                        </div>
                     </div>
                 </div>
 
-                <!-- 6. Profile Building -->
-                <div class="res-gallery-item">
+                <!-- 7. Holi Celebrations 2 -->
+                <div class="res-gallery-item gallery-card" data-category="holi" data-index="6"
+                    data-title="Festive Smiles & Colours"
+                    data-desc="Unforgettable bonding and festive joy shared among teachers and faculty."
+                    data-src="assets/images/sntti-new/holi-celebrations/sntti-teacher-holi-1.jpeg">
                     <div class="res-gallery-img-holder">
-                        <img src="assets/images/sntti-new/teachers-hero.webp" alt="SNTTI profile building"
-                            loading="lazy">
-                        <div class="res-gallery-overlay">
-                            <h3 class="res-gallery-caption">
-                                <i class="bi bi-award-fill"></i> Profile Building
-                            </h3>
-                        </div>
+                        <span class="gallery-pill-tag"><i class="bi bi-stars"></i> Holi Special</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/holi-celebrations/sntti-teacher-holi-1.jpeg"
+                            alt="Holi festival joy at SNTTI" loading="lazy">
                     </div>
                 </div>
+
+                <!-- 8. Meditation Class 2 -->
+                <div class="res-gallery-item gallery-card" data-category="meditation" data-index="7"
+                    data-title="Breathing & Calm Focus"
+                    data-desc="Guided breathing exercises to cultivate patience and positivity in classrooms."
+                    data-src="assets/images/sntti-new/meditation-classes/techers-meditation.jpeg">
+                    <div class="res-gallery-img-holder">
+                        <span class="gallery-pill-tag"><i class="bi bi-flower1"></i> Mindfulness</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/meditation-classes/techers-meditation.jpeg"
+                            alt="Teachers meditation class at SNTTI" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- 9. Wellness Program 2 -->
+                <div class="res-gallery-item gallery-card" data-category="wellness" data-index="8"
+                    data-title="Empowerment Circle"
+                    data-desc="Safe, collaborative sharing spaces designed to uplift women in education."
+                    data-src="assets/images/sntti-new/wellness-program/sntti-wellness-11.jpeg">
+                    <div class="res-gallery-img-holder">
+                        <span class="gallery-pill-tag"><i class="bi bi-heart-pulse-fill"></i> Wellness</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/wellness-program/sntti-wellness-11.jpeg"
+                            alt="Interactive wellness and empowerment session" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- 10. Meditation Class 3 -->
+                <div class="res-gallery-item gallery-card" data-category="meditation" data-index="9"
+                    data-title="Peaceful Classroom Mindset"
+                    data-desc="Cultivating calm, positive presence and inner stillness for early childhood educators."
+                    data-src="assets/images/sntti-new/meditation-classes/sntti-meditation.jpeg">
+                    <div class="res-gallery-img-holder">
+                        <span class="gallery-pill-tag"><i class="bi bi-flower1"></i> Mindfulness</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/meditation-classes/sntti-meditation.jpeg"
+                            alt="SNTTI meditation and mindfulness workshop" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- 11. Holi Celebrations 3 -->
+                <div class="res-gallery-item gallery-card" data-category="holi" data-index="10"
+                    data-title="Festival of Colours"
+                    data-desc="A cherished annual tradition that fosters lifelong friendships and joy."
+                    data-src="assets/images/sntti-new/holi-celebrations/teachers-holi-10.jpeg">
+                    <div class="res-gallery-img-holder">
+                        <span class="gallery-pill-tag"><i class="bi bi-stars"></i> Holi Special</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/holi-celebrations/teachers-holi-10.jpeg"
+                            alt="Festival of colours celebration" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- 12. Wellness Program 3 -->
+                <div class="res-gallery-item gallery-card" data-category="wellness" data-index="11"
+                    data-title="Team Building & Connection"
+                    data-desc="Interactive exercises strengthening collaboration and teaching confidence."
+                    data-src="assets/images/sntti-new/wellness-program/sntti-wellness-2.jpeg">
+                    <div class="res-gallery-img-holder">
+                        <span class="gallery-pill-tag"><i class="bi bi-heart-pulse-fill"></i> Wellness</span>
+                        <div class="gallery-zoom-badge"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <img src="assets/images/sntti-new/wellness-program/sntti-wellness-2.jpeg"
+                            alt="Team building and wellness activity" loading="lazy">
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+
+    <!-- ==========================================================================
+         FULLSCREEN LIGHTBOX MODAL VIEWER
+         ========================================================================== -->
+    <div id="snttiLightbox" class="sntti-lightbox-modal" aria-hidden="true" role="dialog" aria-label="Photo Lightbox">
+        <div class="sntti-lightbox-backdrop"></div>
+
+        <!-- Lightbox Content Container -->
+        <div class="sntti-lightbox-content">
+
+            <!-- Top Controls Bar -->
+            <div class="sntti-lightbox-topbar">
+                <div class="sntti-lightbox-counter" id="lightboxCounter">Photo 1 of 12</div>
+                <button type="button" class="sntti-lightbox-btn close-btn" id="lightboxCloseBtn"
+                    aria-label="Close Lightbox">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <!-- Image Viewport -->
+            <div class="sntti-lightbox-image-wrap">
+                <button type="button" class="sntti-lightbox-nav-btn prev-btn" id="lightboxPrevBtn"
+                    aria-label="Previous Photo">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <div class="sntti-lightbox-img-box">
+                    <img src="" alt="" id="lightboxImg" class="sntti-lightbox-active-img">
+                </div>
+
+                <button type="button" class="sntti-lightbox-nav-btn next-btn" id="lightboxNextBtn"
+                    aria-label="Next Photo">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Gallery Filter & Lightbox Interactive Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+            const galleryCards = document.querySelectorAll('.gallery-card');
+
+            // Lightbox Elements
+            const lightbox = document.getElementById('snttiLightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            const closeBtn = document.getElementById('lightboxCloseBtn');
+            const prevBtn = document.getElementById('lightboxPrevBtn');
+            const nextBtn = document.getElementById('lightboxNextBtn');
+            const backdrop = document.querySelector('.sntti-lightbox-backdrop');
+
+            let currentVisibleCards = Array.from(galleryCards);
+            let currentLightboxIndex = 0;
+
+            // Filter functionality
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    currentVisibleCards = [];
+                    galleryCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (filterValue === 'all' || cardCategory === filterValue) {
+                            card.classList.remove('filtered-out');
+                            card.style.display = '';
+                            currentVisibleCards.push(card);
+                        } else {
+                            card.classList.add('filtered-out');
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Open Lightbox
+            function openLightbox(index) {
+                if (currentVisibleCards.length === 0) return;
+                currentLightboxIndex = index;
+                updateLightboxContent();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Close Lightbox
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Update Lightbox image
+            function updateLightboxContent() {
+                const targetCard = currentVisibleCards[currentLightboxIndex];
+                if (!targetCard) return;
+
+                const src = targetCard.getAttribute('data-src');
+
+                lightboxImg.style.opacity = '0';
+                setTimeout(() => {
+                    lightboxImg.src = src;
+                    lightboxCounter.textContent = `Photo ${currentLightboxIndex + 1} of ${currentVisibleCards.length}`;
+                    lightboxImg.style.opacity = '1';
+                }, 150);
+            }
+
+            // Next & Previous
+            function nextPhoto() {
+                currentLightboxIndex = (currentLightboxIndex + 1) % currentVisibleCards.length;
+                updateLightboxContent();
+            }
+
+            function prevPhoto() {
+                currentLightboxIndex = (currentLightboxIndex - 1 + currentVisibleCards.length) % currentVisibleCards.length;
+                updateLightboxContent();
+            }
+
+            // Card click listener
+            galleryCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    const cardIndexInVisible = currentVisibleCards.indexOf(this);
+                    if (cardIndexInVisible !== -1) {
+                        openLightbox(cardIndexInVisible);
+                    }
+                });
+            });
+
+            // Control listeners
+            closeBtn.addEventListener('click', closeLightbox);
+            backdrop.addEventListener('click', closeLightbox);
+            nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextPhoto(); });
+            prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevPhoto(); });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextPhoto();
+                if (e.key === 'ArrowLeft') prevPhoto();
+            });
+        });
+    </script>
 
 
     <!-- ==========================================================================

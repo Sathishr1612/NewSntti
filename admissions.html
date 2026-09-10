@@ -458,26 +458,7 @@
     <!-- Custom Vanilla JavaScript -->
     <script src="assets/js/main.js"></script>
 
-    <!-- Form validation script -->
-    <script>
-        (function () {
-            'use strict'
-            var forms = document.querySelectorAll('.needs-validation')
-            Array.prototype.slice.call(forms).forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    } else {
-                        event.preventDefault()
-                        document.getElementById('formSuccessMessage').classList.remove('d-none');
-                        form.reset();
-                    }
-                    form.classList.add('was-validated')
-                }, false)
-            })
-        })()
-    </script>
+
 
     <!-- Scroll animation init (reuse existing animate-on-scroll library) -->
     <script>
