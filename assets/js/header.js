@@ -15,12 +15,12 @@ var homeActiveClass = isSubPage ? '' : ' active';
 var aboutActiveClass = isAboutPage ? ' active' : '';
 var courseActiveClass = isCoursePage ? ' active' : '';
 var admissionsActiveClass = isAdmissionsPage ? ' active' : '';
-var resourcesActiveClass = isResourcesPage ? ' active' : '';
+var resourcesActiveClass = (isResourcesPage || isBlogPage) ? ' active' : '';
 var contactActiveClass = isContactPage ? ' active' : '';
 var mobileHomeActiveClass = isSubPage ? '' : ' active';
 var mobileAboutActiveClass = isAboutPage ? ' active' : '';
 var mobileAdmissionsActiveClass = isAdmissionsPage ? ' active' : '';
-var mobileResourcesActiveClass = isResourcesPage ? ' active' : '';
+var mobileResourcesActiveClass = (isResourcesPage || isBlogPage) ? ' active' : '';
 var mobileContactActiveClass = isContactPage ? ' active' : '';
 
 // Navbar extra class: subpages have 'scrolled' baked in
@@ -130,16 +130,22 @@ var headerHTML = `<!-- Top Contact Bar -->
             </a>
             <ul class="dropdown-menu shadow-lg border-0" aria-labelledby="navResources" style="border-radius: 14px; padding: 8px; border: 1px solid rgba(221, 174, 47, 0.25); min-width: 230px;">
               <li>
-                <a class="dropdown-item py-2 px-3 rounded-3 d-flex align-items-center gap-2" href="resources.html#blog-section">
-                  <i class="bi bi-journal-text text-warning" style="font-size: 16px;"></i>
-                  <span>Our Blog</span>
+                <a class="dropdown-item py-2 px-3 rounded-3 d-flex align-items-center gap-2" href="resources.html#video-gallery-section">
+                  <i class="bi bi-play-btn-fill text-warning" style="font-size: 16px;"></i>
+                  <span>Video Gallery</span>
                 </a>
               </li>
-              <li><hr class="dropdown-divider my-1 opacity-25"></li>
               <li>
                 <a class="dropdown-item py-2 px-3 rounded-3 d-flex align-items-center gap-2" href="resources.html#gallery-section">
                   <i class="bi bi-images text-warning" style="font-size: 16px;"></i>
                   <span>Photo Gallery</span>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-1 opacity-25"></li>
+              <li>
+                <a class="dropdown-item py-2 px-3 rounded-3 d-flex align-items-center gap-2" href="blog.html">
+                  <i class="bi bi-journal-text text-warning" style="font-size: 16px;"></i>
+                  <span>Our Blog</span>
                 </a>
               </li>
             </ul>
@@ -202,11 +208,14 @@ var headerHTML = `<!-- Top Contact Bar -->
           <a href="resources.html" class="mobile-submenu-item" onclick="closeMobileMenu()">
             <i class="bi bi-grid-fill me-2 text-warning"></i> All Resources
           </a>
-          <a href="resources.html#blog-section" class="mobile-submenu-item" onclick="closeMobileMenu()">
-            <i class="bi bi-journal-text me-2 text-warning"></i> Our Blog
+          <a href="resources.html#video-gallery-section" class="mobile-submenu-item" onclick="closeMobileMenu()">
+            <i class="bi bi-play-btn-fill me-2 text-warning"></i> Video Gallery
           </a>
           <a href="resources.html#gallery-section" class="mobile-submenu-item" onclick="closeMobileMenu()">
             <i class="bi bi-images me-2 text-warning"></i> Photo Gallery
+          </a>
+          <a href="blog.html" class="mobile-submenu-item" onclick="closeMobileMenu()">
+            <i class="bi bi-journal-text me-2 text-warning"></i> Our Blog
           </a>
         </div>
       </div>

@@ -1246,3 +1246,32 @@
     margin: 32px 0;
   }
 }
+
+/* ==========================================================================
+   VIDEO GALLERY MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  .res-video-section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .res-video-section {
+    padding: 45px 0 35px;
+  }
+
+  .res-video-card {
+    border-radius: 16px;
+  }
+
+  .video-play-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .sntti-video-player-box {
+    border-radius: 12px;
+  }
+}

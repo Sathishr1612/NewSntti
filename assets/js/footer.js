@@ -19,8 +19,10 @@ var flp = isSubPageFooter ? 'index.html' : '';
 // Footer Quick Links differ between pages
 var footerHomeLink = isSubPageFooter ? 'index.html#home' : '#home';
 var footerAboutLink = 'about.html';
+var footerCoursesLink = 'course.html';
 var footerAdmissionsLink = 'admissions.html';
 var footerResourcesLink = 'resources.html';
+var footerBlogLink = 'blog.html';
 var footerContactLink = 'contact.html';
 
 // Footer Courses links
@@ -67,8 +69,10 @@ var footerHTML = `<footer id="footer" class="footer-section">
           <ul class="footer-links">
             <li><a href="${footerHomeLink}"><i class="bi bi-chevron-right fs-6"></i> Home</a></li>
             <li><a href="${footerAboutLink}"><i class="bi bi-chevron-right fs-6"></i> About Us</a></li>
+            <li><a href="${footerCoursesLink}"><i class="bi bi-chevron-right fs-6"></i> Courses</a></li>
             <li><a href="${footerAdmissionsLink}"><i class="bi bi-chevron-right fs-6"></i> Admissions</a></li>
             <li><a href="${footerResourcesLink}"><i class="bi bi-chevron-right fs-6"></i> Resources</a></li>
+            <li><a href="${footerBlogLink}"><i class="bi bi-chevron-right fs-6"></i> Our Blog</a></li>
             <li><a href="${footerContactLink}"><i class="bi bi-chevron-right fs-6"></i> Contact Us</a></li>
           </ul>
         </div>

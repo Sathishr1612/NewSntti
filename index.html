@@ -775,6 +775,79 @@
   </section>
 
   <!-- ==========================================================================
+       SECTION 3.4: VIDEO SPOTLIGHT — Life & Learning at SNTTI
+       ========================================================================== -->
+  <section id="home-video-showcase" class="res-video-section position-relative overflow-hidden">
+    <div class="container position-relative z-2">
+      <!-- Section Header -->
+      <div class="row align-items-end justify-content-between mb-5 animate-on-scroll fade-up">
+        <div class="col-lg-8">
+          <div class="about-eyebrow mb-2 d-inline-flex align-items-center">
+            <i class="bi bi-play-circle-fill text-gold me-2"></i>
+            <span class="eyebrow-text">CAMPUS IN ACTION</span>
+          </div>
+          <h2 class="about-main-title mb-2">
+            See SNTTI <span class="text-gold">in Action</span>
+          </h2>
+          <p class="about-lead-text text-muted mb-0" style="max-width: 620px;">
+            Discover real classroom experiences, student testimonials, celebrations, and memorable moments from the
+            SNTTI community.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 d-none d-md-block">
+          <a href="resources.html#video-gallery-section" class="btn btn-gold-pill">
+            VIEW ALL VIDEOS <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 Featured Video Cards Grid -->
+      <div class="row g-4 justify-content-center res-video-grid animate-on-scroll fade-up">
+        <!-- Video 1 -->
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="res-video-card" data-video="assets/images/videos/sntti-video-7.mp4">
+            <div class="res-video-thumb-wrap">
+              <video preload="metadata" muted playsinline class="res-video-preview">
+                <source src="assets/images/videos/sntti-video-7.mp4#t=0.5" type="video/mp4">
+              </video>
+              <div class="video-play-btn"><i class="bi bi-play-fill"></i></div>
+            </div>
+          </div>
+        </div>
+        <!-- Video 2 -->
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="res-video-card" data-video="assets/images/videos/sntti-video-5.mp4">
+            <div class="res-video-thumb-wrap">
+              <video preload="metadata" muted playsinline class="res-video-preview">
+                <source src="assets/images/videos/sntti-video-5.mp4#t=0.5" type="video/mp4">
+              </video>
+              <div class="video-play-btn"><i class="bi bi-play-fill"></i></div>
+            </div>
+          </div>
+        </div>
+        <!-- Video 3 -->
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="res-video-card" data-video="assets/images/videos/sntti-video-9.mp4">
+            <div class="res-video-thumb-wrap">
+              <video preload="metadata" muted playsinline class="res-video-preview">
+                <source src="assets/images/videos/sntti-video-9.mp4#t=0.5" type="video/mp4">
+              </video>
+              <div class="video-play-btn"><i class="bi bi-play-fill"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile More Videos Button -->
+      <div class="text-center mt-4 pt-2 d-block d-md-none animate-on-scroll fade-up">
+        <a href="resources.html#video-gallery-section" class="btn btn-gold-pill w-100 justify-content-center">
+          VIEW ALL VIDEOS <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
        SECTION 3.5: TESTIMONIALS
        ========================================================================== -->
   <section id="testimonials" class="testimonials-section py-6 overflow-hidden">
@@ -1381,6 +1454,132 @@
     </div>
   </div>
 
+  <!-- ==========================================================================
+       FULLSCREEN VIDEO LIGHTBOX MODAL VIEWER
+       ========================================================================== -->
+  <div id="snttiVideoLightbox" class="sntti-lightbox-modal sntti-video-lightbox-modal" aria-hidden="true" role="dialog"
+    aria-label="Video Player">
+    <div class="sntti-lightbox-backdrop" id="videoLightboxBackdrop"></div>
+
+    <div class="sntti-lightbox-content sntti-video-lightbox-content">
+      <!-- Top Controls Bar -->
+      <div class="sntti-lightbox-topbar">
+        <div class="d-flex align-items-center gap-3">
+          <span class="badge bg-warning text-dark px-3 py-1 rounded-pill fw-bold font-monospace text-uppercase"
+            id="videoModalTag" style="font-size: 11px;">VIDEO</span>
+          <span class="sntti-lightbox-counter" id="videoModalCounter">Video 1 of 3</span>
+        </div>
+        <button type="button" class="sntti-lightbox-btn close-btn" id="videoLightboxCloseBtn" aria-label="Close Video">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!-- Video Player Container -->
+      <div class="sntti-lightbox-image-wrap sntti-video-player-wrap">
+        <button type="button" class="sntti-lightbox-nav-btn prev-btn" id="videoLightboxPrevBtn"
+          aria-label="Previous Video">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+
+        <div class="sntti-video-player-box">
+          <video id="activeModalVideo" controls playsinline preload="auto" class="w-100 h-100 rounded-4 shadow-lg">
+            <source src="" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+
+        <button type="button" class="sntti-lightbox-nav-btn next-btn" id="videoLightboxNextBtn" aria-label="Next Video">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Gallery Interactive Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const videoCards = document.querySelectorAll('.res-video-card');
+      const videoLightbox = document.getElementById('snttiVideoLightbox');
+      const videoPlayer = document.getElementById('activeModalVideo');
+      const videoCloseBtn = document.getElementById('videoLightboxCloseBtn');
+      const videoBackdrop = document.getElementById('videoLightboxBackdrop');
+      const videoPrevBtn = document.getElementById('videoLightboxPrevBtn');
+      const videoNextBtn = document.getElementById('videoLightboxNextBtn');
+      const videoModalCounter = document.getElementById('videoModalCounter');
+
+      if (!videoLightbox || !videoPlayer || videoCards.length === 0) return;
+
+      let currentVideoIndex = 0;
+
+      function openVideo(index) {
+        if (videoCards.length === 0) return;
+        currentVideoIndex = index;
+        const card = videoCards[currentVideoIndex];
+        const videoSrc = card.getAttribute('data-video');
+
+        videoPlayer.pause();
+        videoPlayer.src = videoSrc;
+        videoPlayer.load();
+
+        if (videoModalCounter) {
+          videoModalCounter.textContent = `Video ${currentVideoIndex + 1} of ${videoCards.length}`;
+        }
+
+        videoLightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        videoPlayer.play().catch(function () { });
+      }
+
+      function closeVideo() {
+        videoLightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        videoPlayer.pause();
+        videoPlayer.src = '';
+      }
+
+      function nextVideo() {
+        currentVideoIndex = (currentVideoIndex + 1) % videoCards.length;
+        openVideo(currentVideoIndex);
+      }
+
+      function prevVideo() {
+        currentVideoIndex = (currentVideoIndex - 1 + videoCards.length) % videoCards.length;
+        openVideo(currentVideoIndex);
+      }
+
+      videoCards.forEach((card, idx) => {
+        const previewVideo = card.querySelector('.res-video-preview');
+
+        // Hover preview on desktop
+        if (previewVideo && window.matchMedia('(hover: hover)').matches) {
+          card.addEventListener('mouseenter', function () {
+            previewVideo.play().catch(() => { });
+          });
+          card.addEventListener('mouseleave', function () {
+            previewVideo.pause();
+            previewVideo.currentTime = 0.5;
+          });
+        }
+
+        card.addEventListener('click', function () {
+          openVideo(idx);
+        });
+      });
+
+      if (videoCloseBtn) videoCloseBtn.addEventListener('click', closeVideo);
+      if (videoBackdrop) videoBackdrop.addEventListener('click', closeVideo);
+      if (videoNextBtn) videoNextBtn.addEventListener('click', function (e) { e.stopPropagation(); nextVideo(); });
+      if (videoPrevBtn) videoPrevBtn.addEventListener('click', function (e) { e.stopPropagation(); prevVideo(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!videoLightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeVideo();
+        if (e.key === 'ArrowRight') nextVideo();
+        if (e.key === 'ArrowLeft') prevVideo();
+      });
+    });
+  </script>
 
   <!-- Bootstrap 5 Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
