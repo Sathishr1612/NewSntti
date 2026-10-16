@@ -373,6 +373,19 @@
     box-shadow: 0 10px 25px rgba(233, 177, 58, 0.45);
   }
 
+  /* Solace button inside the dark mobile menu overlay */
+  .mobile-menu-overlay .btn-solace,
+  #mobileMenuOverlay .btn-solace {
+    color: var(--gold-color) !important;
+    border-color: var(--gold-color);
+    background-color: rgba(233, 177, 58, 0.08);
+  }
+
+  #mobileMenuOverlay .btn-solace:hover {
+    background-color: var(--gold-color);
+    color: var(--primary-color) !important;
+  }
+
   /* --------------------------------------------------------------------------
    5. Mobile Hamburger & Full-Screen Navigation Overlay
    -------------------------------------------------------------------------- */
