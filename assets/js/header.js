@@ -1,23 +1,25 @@
-// Detect if we are on a secondary page (about.html, course.html, contact.html, Admissions.html, etc.)
-var isAboutPage = window.location.pathname.toLowerCase().indexOf('about') !== -1;
-var isCoursePage = window.location.pathname.toLowerCase().indexOf('course') !== -1;
-var isContactPage = window.location.pathname.toLowerCase().indexOf('contact') !== -1;
-var isAdmissionsPage = window.location.pathname.toLowerCase().indexOf('admissions') !== -1;
-var isResourcesPage = window.location.pathname.toLowerCase().indexOf('resources') !== -1;
-var isBlogPage = window.location.pathname.toLowerCase().indexOf('blog') !== -1;
-var isSubPage = isAboutPage || isCoursePage || isContactPage || isAdmissionsPage || isResourcesPage || isBlogPage;
+// Detect current page path
+var currentPath = window.location.pathname.toLowerCase();
+var isAboutPage = currentPath.indexOf('about') !== -1;
+var isCoursePage = currentPath.indexOf('course') !== -1;
+var isContactPage = currentPath.indexOf('contact') !== -1;
+var isAdmissionsPage = currentPath.indexOf('admissions') !== -1;
+var isResourcesPage = currentPath.indexOf('resources') !== -1;
+var isBlogPage = currentPath.indexOf('blog') !== -1;
+var isIndexPage = currentPath === '' || currentPath === '/' || currentPath.endsWith('/index.html') || currentPath.endsWith('\\index.html');
+var isSubPage = !isIndexPage;
 
 // Build link prefix: on subpages, all section anchors point to index.html#...
 var lp = isSubPage ? 'index.html' : '';
 
 // Active class assignments
-var homeActiveClass = isSubPage ? '' : ' active';
+var homeActiveClass = isIndexPage ? ' active' : '';
 var aboutActiveClass = isAboutPage ? ' active' : '';
 var courseActiveClass = isCoursePage ? ' active' : '';
 var admissionsActiveClass = isAdmissionsPage ? ' active' : '';
 var resourcesActiveClass = (isResourcesPage || isBlogPage) ? ' active' : '';
 var contactActiveClass = isContactPage ? ' active' : '';
-var mobileHomeActiveClass = isSubPage ? '' : ' active';
+var mobileHomeActiveClass = isIndexPage ? ' active' : '';
 var mobileAboutActiveClass = isAboutPage ? ' active' : '';
 var mobileAdmissionsActiveClass = isAdmissionsPage ? ' active' : '';
 var mobileResourcesActiveClass = (isResourcesPage || isBlogPage) ? ' active' : '';
@@ -31,6 +33,10 @@ var logoHref = isSubPage ? 'index.html' : '#';
 
 // Book Consultation button: link to contact page
 var consultationBtn = '<a href="contact.html" class="btn btn-consultation">\n          <i class="bi bi-calendar-check-fill"></i> Book Consultation\n        </a>';
+
+// Visit Solace Minds button (external site)
+var solaceBtn = '<a href="https://solaceminds.in/" target="_blank" rel="noopener noreferrer" class="btn btn-solace">\n          <i class="bi bi-box-arrow-up-right"></i> Visit Solace Minds\n        </a>';
+var mobileSolaceBtn = '<a href="https://solaceminds.in/" target="_blank" rel="noopener noreferrer" class="btn btn-solace w-100 justify-content-center mb-2"\n        onclick="closeMobileMenu()">\n        <i class="bi bi-box-arrow-up-right me-2"></i> Visit Solace Minds\n      </a>';
 
 // Mobile menu: Home link href and footer CTA
 var mobileHomeHref = isSubPage ? 'index.html#home' : '#home';
@@ -89,7 +95,7 @@ var headerHTML = `<!-- Top Contact Bar -->
   </header>
 
   <!-- Sticky Navbar -->
-  <nav id="navbar-main" class="navbar navbar-expand-xl custom-navbar${navbarScrolledClass} sticky-top">
+  <nav id="navbar-main" class="navbar navbar-expand-xl custom-navbar${navbarScrolledClass}">
     <div class="container">
 
       <!-- Logo on Left -->
@@ -157,7 +163,8 @@ var headerHTML = `<!-- Top Contact Bar -->
       </div>
 
       <!-- Book Consultation Button on Right -->
-      <div class="d-none d-xl-block btn-consultation-desktop">
+      <div class="d-none d-xl-flex align-items-center gap-2 btn-consultation-desktop">
+        ${solaceBtn}
         ${consultationBtn}
       </div>
 
@@ -227,6 +234,7 @@ var headerHTML = `<!-- Top Contact Bar -->
 
     <!-- Mobile Footer Action -->
     <div class="mobile-menu-footer">
+      ${mobileSolaceBtn}
       ${mobileCTA}
 
       <div class="d-flex align-items-center justify-content-between mt-4">

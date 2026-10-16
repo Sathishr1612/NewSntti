@@ -4,14 +4,10 @@
  * Runs immediately (no DOMContentLoaded). Loaded before main.js.
  */
 
-// Detect if we are on a secondary page
-var isAboutPageFooter = window.location.pathname.toLowerCase().indexOf('about') !== -1;
-var isCoursePageFooter = window.location.pathname.toLowerCase().indexOf('course') !== -1;
-var isContactPageFooter = window.location.pathname.toLowerCase().indexOf('contact') !== -1;
-var isAdmissionsPageFooter = window.location.pathname.toLowerCase().indexOf('admissions') !== -1;
-var isResourcesPageFooter = window.location.pathname.toLowerCase().indexOf('resources') !== -1;
-var isBlogPageFooter = window.location.pathname.toLowerCase().indexOf('blog') !== -1;
-var isSubPageFooter = isAboutPageFooter || isCoursePageFooter || isContactPageFooter || isAdmissionsPageFooter || isResourcesPageFooter || isBlogPageFooter;
+// Detect current page path
+var footerPath = window.location.pathname.toLowerCase();
+var isIndexPageFooter = footerPath === '' || footerPath === '/' || footerPath.endsWith('/index.html') || footerPath.endsWith('\\index.html');
+var isSubPageFooter = !isIndexPageFooter;
 
 // Build link prefix: on subpages, section anchors point to index.html#...
 var flp = isSubPageFooter ? 'index.html' : '';

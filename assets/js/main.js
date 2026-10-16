@@ -303,39 +303,150 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// 15. Testimonial Horizontal Swipe / Drag Support
+// 15. High-Performance Interactive Marquee (Auto-Move + Touch Swipe & Drag Support)
 document.addEventListener('DOMContentLoaded', () => {
   const marqueeContainers = document.querySelectorAll('.marquee-container');
+  if (!marqueeContainers.length) return;
+
   marqueeContainers.forEach((container) => {
-    let isDown = false;
+    const track = container.querySelector('.marquee-track');
+    if (!track) return;
+
+    const isMoveLeft = track.classList.contains('marquee-left');
+    // Smooth auto-scroll speed (negative = left, positive = right)
+    const defaultSpeed = isMoveLeft ? -0.8 : 0.8;
+
+    let pos = 0;
+    let isDragging = false;
+    let isHovered = false;
     let startX = 0;
-    let scrollLeft = 0;
+    let startY = 0;
+    let startPos = 0;
+    let isDetermined = false;
+    let isHorizontalSwipe = false;
+    let halfWidth = 0;
 
-    container.addEventListener('mousedown', (e) => {
-      isDown = true;
-      container.style.cursor = 'grabbing';
-      container.style.scrollSnapType = 'none';
-      startX = e.pageX - container.offsetLeft;
-      scrollLeft = container.scrollLeft;
-    });
-
-    const stopDragging = () => {
-      if (!isDown) return;
-      isDown = false;
-      container.style.cursor = 'grab';
-      container.style.scrollSnapType = 'x mandatory';
+    const calculateWidth = () => {
+      // Half width corresponds to 1 full set of cards (since track has duplicate cards)
+      halfWidth = track.scrollWidth / 2;
     };
 
-    container.addEventListener('mouseleave', stopDragging);
-    container.addEventListener('mouseup', stopDragging);
+    calculateWidth();
+    window.addEventListener('resize', calculateWidth, { passive: true });
+    // Also recalculate after images or fonts load
+    window.addEventListener('load', calculateWidth, { passive: true });
 
-    container.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - container.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      container.scrollLeft = scrollLeft - walk;
+    // 60fps/120fps Hardware-Accelerated Animation Loop
+    const animate = () => {
+      if (halfWidth > 0) {
+        if (!isDragging && !isHovered) {
+          pos += defaultSpeed;
+        }
+
+        // Seamless Infinite Loop Normalization
+        while (pos <= -halfWidth) {
+          pos += halfWidth;
+          startPos += halfWidth;
+        }
+        while (pos > 0) {
+          pos -= halfWidth;
+          startPos -= halfWidth;
+        }
+
+        track.style.transform = `translate3d(${pos}px, 0, 0)`;
+      }
+      requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+
+    // Desktop Hover: slow down or pause on card hover for reading
+    container.addEventListener('mouseenter', () => {
+      isHovered = true;
     });
+    container.addEventListener('mouseleave', () => {
+      isHovered = false;
+      if (isDragging) {
+        isDragging = false;
+        container.style.cursor = 'grab';
+      }
+    });
+
+    // Desktop Mouse Drag
+    container.addEventListener('mousedown', (e) => {
+      if (e.button !== 0) return;
+      isDragging = true;
+      startX = e.clientX;
+      startPos = pos;
+      container.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - startX;
+      pos = startPos + deltaX;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        container.style.cursor = 'grab';
+      }
+    });
+
+    // Mobile & Tablet Touch Swipe
+    container.addEventListener(
+      'touchstart',
+      (e) => {
+        if (!e.touches || e.touches.length === 0) return;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        startPos = pos;
+        isDetermined = false;
+        isHorizontalSwipe = false;
+      },
+      { passive: true }
+    );
+
+    container.addEventListener(
+      'touchmove',
+      (e) => {
+        if (!e.touches || e.touches.length === 0) return;
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const deltaX = currentX - startX;
+        const deltaY = currentY - startY;
+
+        // Smart axis detection: don't hijack vertical page scrolling
+        if (!isDetermined) {
+          if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 6) {
+            isDetermined = true;
+            isHorizontalSwipe = false; // Vertical scroll, let browser scroll the page
+            return;
+          } else if (Math.abs(deltaX) > 6) {
+            isDetermined = true;
+            isHorizontalSwipe = true;
+            isDragging = true;
+          }
+        }
+
+        if (isHorizontalSwipe && isDragging) {
+          if (e.cancelable) e.preventDefault();
+          pos = startPos + deltaX;
+        }
+      },
+      { passive: false }
+    );
+
+    const endTouch = () => {
+      isDragging = false;
+      isDetermined = false;
+      isHorizontalSwipe = false;
+    };
+
+    container.addEventListener('touchend', endTouch, { passive: true });
+    container.addEventListener('touchcancel', endTouch, { passive: true });
   });
 });
 

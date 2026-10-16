@@ -721,7 +721,10 @@
   }
 
   .luxury-info-panel,
-  .luxury-form-card {
+  .luxury-form-card,
+  .luxury-form-pane,
+  .enquiry-dark-pane,
+  .enquiry-light-pane {
     padding: 30px 20px !important;
   }
 
@@ -830,39 +833,25 @@
     display: none !important;
   }
 
-  /* Enable smooth horizontal touch swiping */
+  /* Keep marquee animated & smooth on tablet */
   .marquee-container {
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-snap-type: x mandatory !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    cursor: grab;
-    padding: 12px 0 !important;
-    display: flex !important;
-  }
-
-  .marquee-container::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
+    overflow: hidden !important;
+    padding: 14px 0 !important;
+    display: block !important;
+    width: 100% !important;
   }
 
   .marquee-track {
-    animation: none !important;
-    transform: none !important;
     display: flex !important;
-    gap: 16px !important;
+    gap: 18px !important;
     width: max-content !important;
-    padding: 6px 15px !important;
+    padding: 6px 0 !important;
   }
 
   .testi-card {
-    width: min(85vw, 340px) !important;
+    width: 340px !important;
     height: auto !important;
     min-height: 270px !important;
-    scroll-snap-align: center !important;
     flex-shrink: 0 !important;
     user-select: none;
     -webkit-user-select: none;
@@ -902,20 +891,23 @@
   }
 
   .testi-card {
-    width: min(88vw, 310px) !important;
+    width: 290px !important;
     height: auto !important;
-    min-height: 240px !important;
-    padding: 24px !important;
+    min-height: 250px !important;
+    padding: 22px 20px !important;
     border-radius: 20px !important;
   }
 
   .marquee-track {
     gap: 14px !important;
-    padding: 6px 12px !important;
+    padding: 6px 0 !important;
   }
 
   .marquee-container {
+    overflow: hidden !important;
     padding: 8px 0 !important;
+    display: block !important;
+    width: 100% !important;
   }
 }
 
@@ -979,6 +971,16 @@
   .btn-consultation {
     padding: 8px 15px !important;
     font-size: 13.5px !important;
+  }
+
+  .btn-solace {
+    padding: 7px 12px !important;
+    font-size: 13px !important;
+    gap: 6px;
+  }
+
+  .btn-consultation-desktop {
+    gap: 6px !important;
   }
 
   .brand-logo-img {

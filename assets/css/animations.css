@@ -39,6 +39,13 @@
   transform: translate3d(0, 0, 0) scale(1);
 }
 
+/* Stagger & Transition Delay Helpers */
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.5s !important; }
+
 /* 2. IMAGE REVEAL */
 .editorial-collage-grid .collage-img,
 .card-image-box .card-img,
@@ -213,7 +220,19 @@ select {
 }
 .nav-link { transition: color var(--dur-xs) ease, opacity var(--dur-xs) ease !important; }
 
-/* 9. MARQUEE CARDS HOVER */
+/* 9. MARQUEE CARDS HOVER & TOUCH SUPPORT */
+.marquee-container {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y; /* Allows vertical page scroll while swiping horizontally */
+}
+.marquee-container:active {
+  cursor: grabbing;
+}
+.marquee-track {
+  will-change: transform;
+}
 .marquee-track .testi-card {
   transition:
     transform var(--dur-sm) var(--ease-premium),
@@ -222,28 +241,6 @@ select {
 .marquee-track .testi-card:hover {
   transform: translateY(-6px) scale(1.01);
   box-shadow: 0 18px 44px rgba(90,29,22,0.13);
-}
-.marquee-left {
-  animation: marqueeLeft 60s linear infinite;
-}
-
-.marquee-right {
-  animation: marqueeRight 60s linear infinite;
-}
-
-:root {
-  --shift-left: -1768px; /* 4 cards * (420px + 22px) */
-  --shift-right: -1326px; /* 3 cards * (420px + 22px) */
-}
-
-@keyframes marqueeLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(var(--shift-left)); }
-}
-
-@keyframes marqueeRight {
-  0% { transform: translateX(var(--shift-right)); }
-  100% { transform: translateX(0); }
 }
 /* 10. COURSE NAV BUTTONS */
 .courses-nav-btn {

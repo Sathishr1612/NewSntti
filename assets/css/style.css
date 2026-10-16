@@ -49,7 +49,7 @@
 
   body {
     background-color: var(--white);
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   a {
@@ -192,13 +192,13 @@
    4. Navbar Styling
    -------------------------------------------------------------------------- */
   #site-header {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1050;
   }
 
   .custom-navbar {
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 1050;
     background-color: var(--white);
     padding: 8px 0;
@@ -208,12 +208,7 @@
   }
 
   .custom-navbar.scrolled {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     width: 100%;
-    z-index: 1050;
     padding: 8px 0;
     background-color: #FFFFFF !important;
     box-shadow: 0 8px 30px rgba(46, 26, 20, 0.12);
@@ -351,6 +346,30 @@
     border-color: var(--gold-color);
     color: var(--primary-color);
     transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(233, 177, 58, 0.45);
+  }
+
+  /* Visit Solace Minds Button */
+  .btn-solace {
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    border-radius: 30px;
+    border: 2px solid var(--gold-color);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-solace:hover {
+    background-color: var(--gold-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(233, 177, 58, 0.45);
   }
 
@@ -3295,24 +3314,45 @@
     color: var(--gold-color, #E9B13A);
   }
 
-  /* Right Side: Form (White/Clean) */
-  .luxury-form-card {
-    background-color: #ffffff;
-    padding: 60px 50px;
-    height: 100%;
+  /* Right Side: Form Container for Plumb5 In-Page Form */
+  .luxury-form-pane,
+  .enquiry-light-pane {
+    background: #ffffff;
+    padding: 40px 35px;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
   }
 
-  .luxury-form-card .form-card-title {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    letter-spacing: -0.5px;
-    margin-bottom: 0.5rem;
+  /* Ensure Plumb5 embedded form is 100% fluid, perfectly centered & responsive */
+  [plumb5="Plumb5InPageForms"],
+  div[id^="dvPlumb5InPageScript"] {
+    width: 100% !important;
+    max-width: 650px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
   }
 
-  .luxury-form-card .form-card-desc {
-    font-size: 1.05rem;
-    color: #86868b;
-    margin-bottom: 2rem;
+  [plumb5="Plumb5InPageForms"] form,
+  [plumb5="Plumb5InPageForms"] table,
+  [plumb5="Plumb5InPageForms"] > div,
+  div[id^="dvPlumb5InPageScript"] form,
+  div[id^="dvPlumb5InPageScript"] table,
+  div[id^="dvPlumb5InPageScript"] > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
   }
 
   .luxury-contact-form .form-label-luxury {
@@ -3396,7 +3436,8 @@
     }
 
     .luxury-info-panel,
-    .luxury-form-card {
+    .luxury-form-card,
+    .luxury-form-pane {
       padding: 40px 30px;
     }
   }
@@ -3404,8 +3445,21 @@
   @media (max-width: 767px) {
 
     .luxury-info-panel,
-    .luxury-form-card {
+    .luxury-form-card,
+    .luxury-form-pane {
       padding: 30px 20px;
+    }
+
+    [plumb5="Plumb5InPageForms"] h1,
+    [plumb5="Plumb5InPageForms"] h2,
+    [plumb5="Plumb5InPageForms"] h3,
+    [plumb5="Plumb5InPageForms"] h4,
+    div[id^="dvPlumb5InPageScript"] h1,
+    div[id^="dvPlumb5InPageScript"] h2,
+    div[id^="dvPlumb5InPageScript"] h3,
+    div[id^="dvPlumb5InPageScript"] h4 {
+      font-size: 1.4rem !important;
+      text-align: center !important;
     }
   }
 
@@ -5051,8 +5105,14 @@
   }
 
   .enquiry-light-pane {
-    padding: 60px 50px;
+    padding: 35px 30px;
     background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .form-label-lux {
@@ -6310,7 +6370,15 @@
     gap: 26px;
   }
 
-  /* Gallery Filter Buttons */
+  /* Gallery Filter Container & Buttons */
+  .gallery-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
   .gallery-filter-btn {
     background: #ffffff;
     color: var(--sntti-dark-brown, #4A241B);
@@ -6640,9 +6708,29 @@
       padding: 55px 0;
     }
 
+    .gallery-filter-container {
+      flex-wrap: nowrap !important;
+      justify-content: flex-start !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 4px 16px 12px 16px !important;
+      margin-left: -12px !important;
+      margin-right: -12px !important;
+      margin-bottom: 24px !important;
+      gap: 10px !important;
+    }
+
+    .gallery-filter-container::-webkit-scrollbar {
+      display: none;
+    }
+
     .gallery-filter-btn {
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
       font-size: 13px;
-      padding: 7px 16px;
+      padding: 8px 18px;
     }
 
     .res-gallery-grid {
@@ -6652,6 +6740,7 @@
 
     .res-gallery-item {
       border-radius: 16px;
+      touch-action: manipulation;
     }
 
     .gallery-pill-tag {
@@ -6705,19 +6794,26 @@
       padding: 45px 0;
     }
 
+    .gallery-filter-container {
+      padding: 4px 12px 10px 12px !important;
+      margin-bottom: 20px !important;
+      gap: 8px !important;
+    }
+
     .gallery-filter-btn {
-      font-size: 12px;
-      padding: 6px 14px;
+      font-size: 12.5px;
+      padding: 7px 15px;
     }
 
     .res-gallery-grid {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 18px;
     }
 
     .res-gallery-item {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 11;
       border-radius: 18px;
+      box-shadow: 0 10px 26px rgba(74, 36, 27, 0.10);
     }
 
     .gallery-pill-tag {
